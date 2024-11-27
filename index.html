@@ -102,7 +102,12 @@
     <div class="container" id="main-content">
         <div class="row content" id="section-content">
             <!-- Profile and Contact Info Sidebar -->
-            <aside id="leftPanel" class="col-md-3 language sticky-top d-none d-md-block" style="top: 80px; height: calc(100vh - 80px);">
+            <aside id="leftPanel" class="col-md-3 language collapse d-md-block" style="top: 80px;">
+                <!-- Toggle Button for Sidebar on Mobile -->
+                <button class="btn btn-primary d-md-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#leftPanel" aria-controls="leftPanel" aria-expanded="false" aria-label="Toggle sidebar">
+                    <i class="fa fa-bars"></i> Menu
+                </button>
+            
                 <div class="row mb-3">
                     <div class="col">
                         <img src="assets/documents/imgs/me.jpg" class="rounded me-auto d-block img-fluid profilepicture" alt="Gabe Smithline profile picture">
@@ -110,7 +115,7 @@
                 </div>
                 <h3 class="mb-2">Gabe Smithline</h3>
                 <p class="mb-4 t-secondary" data-en="Ph.D. Student in Computer Science at the University of Michigan Ann Arbor">Ph.D. Student in Computer Science at the University of Michigan Ann Arbor</p>
-
+            
                 <!-- Logos Section -->
                 <div class="logos">
                     <div class="row">
@@ -127,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-
+            
                 <!-- Contact Information -->
                 <div class="row mb-2">
                     <div class="col-1">
