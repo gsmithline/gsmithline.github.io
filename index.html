@@ -7,16 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="description" content="Gabe Smithline's website, biography, education, previous experience and research." />
-    <meta name="keywords" content="gabesmithline, GabeSmithline, Gabe Smithline, Gabriel Smithline, gabe smithline github, gabe smithline cv, gabe smithline portfolio" />
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Gabe Smithline's academic portfolio - Computer Science Ph.D. Student at University of Michigan, research in Multi-Agent Systems and Game Theory." />
+    <meta name="keywords" content="Gabe Smithline, Gabriel Smithline, Computer Science, PhD, University of Michigan, Multi-Agent Systems, Game Theory, AI Safety" />
     <meta name="author" content="Gabe Smithline" />
+    <meta name="robots" content="index,follow" />
     <meta name="copyright" content="Work protected by copyright; no distribution without permission." />
 
     <!-- Title + Icon -->
-    <title>Gabe Smithline</title>
-
-    <!-- Improve SEO -->
-    <meta name="robots" content="index,follow" />
+    <title>Gabe Smithline | Computer Science Ph.D. Student</title>
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -46,15 +45,35 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Additional academic styling */
+        .section-heading {
+            border-bottom: 2px solid #00274c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .research-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .research-item:last-child {
+            border-bottom: none;
+        }
+        .research-title a {
+            color: #00274c;
+            text-decoration: none;
+        }
+        .research-title a:hover {
+            text-decoration: underline;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Under Construction Alert -->
-    <div class="alert alert-warning text-center" role="alert">
-        This website is currently under construction. Please excuse the mess and check back soon for updates!
-    </div>
-
     <!-- Google Analytics Script -->
     <script>
         fetch('./assets/js/config.json')
@@ -87,10 +106,19 @@
             <div class="navbar-collapse collapse flex-grow-1 justify-content-center" id="collapsingNavbar3">
                 <ul class="navbar-nav mx-auto language" id="navbarList">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#aboutmeContent" data-en="About Me">About Me</a>
+                        <a class="nav-link active" href="#aboutmeContent" data-en="About">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#researchContent" data-en="Research">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#publicationsContent" data-en="Publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#teachingContent" data-en="Teaching">Teaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#cvContent" data-en="CV">CV</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#athleticsContent" data-en="Athletics">Athletics</a>
@@ -111,26 +139,36 @@
                 <h3 class="mb-2">Gabe Smithline</h3>
                 <p class="mb-4 t-secondary" data-en="Ph.D. Student in Computer Science at the University of Michigan Ann Arbor">Ph.D. Student in Computer Science at the University of Michigan Ann Arbor</p>
             
-                <!-- Logos Section -->
+                <!-- Affiliations Section -->
                 <div class="logos">
                     <div class="row g-3">
                         <div class="col-6 d-flex justify-content-center align-items-center">
-                            <img src="assets/documents/imgs/lafayette.png" class="img-fluid" alt="Lafayette College Logo" style="max-width: 120px;">
+                            <a href="https://www.lafayette.edu/" target="_blank">
+                                <img src="assets/documents/imgs/lafayette.png" class="img-fluid" alt="Lafayette College Logo" style="max-width: 120px;">
+                            </a>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-items-center">
-                            <img src="assets/documents/imgs/tufts.png" class="img-fluid" alt="Tufts University Logo" style="max-width: 120px;">
+                            <a href="https://www.tufts.edu/" target="_blank">
+                                <img src="assets/documents/imgs/tufts.png" class="img-fluid" alt="Tufts University Logo" style="max-width: 120px;">
+                            </a>
                         </div>
                     </div>
                     <div class="row g-3 mt-3">
                         <div class="col-6 d-flex justify-content-center align-items-center">
-                            <img src="assets/documents/imgs/umich.png" class="img-fluid" alt="University of Michigan Logo" style="max-width: 120px;">
+                            <a href="https://umich.edu/" target="_blank">
+                                <img src="assets/documents/imgs/umich.png" class="img-fluid" alt="University of Michigan Logo" style="max-width: 120px;">
+                            </a>
                         </div>
                         <div class="col-6 d-flex justify-content-center align-items-center">
-                            <img src="assets/documents/imgs/SRG-white.png" class="img-fluid" alt="SRG Logo" style="max-width: 160px;">
+                            <a href="https://strategicreasoning.org/" target="_blank">
+                                <img src="assets/documents/imgs/SRG-white.png" class="img-fluid" alt="SRG Logo" style="max-width: 160px;">
+                            </a>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Contact Information -->
+                <h4 class="mt-4 mb-3">Contact</h4>
                 <div class="row mb-2">
                     <div class="col-1">
                         <i class="fal fa-map-marker-alt" aria-hidden="true"></i>
@@ -149,6 +187,9 @@
                         <a href="mailto:gsmithl@umich.edu" class="link-dark">gsmithl@umich.edu</a>
                     </div>
                 </div>
+                
+                <!-- Social/Academic Links -->
+                <h4 class="mt-4 mb-3">Links</h4>
                 <div class="row mb-2">
                     <div class="col-1">
                         <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
@@ -165,6 +206,22 @@
                         <a href="https://github.com/gsmithline" class="link-dark" target="_blank">GitHub</a>
                     </div>
                 </div>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="ai ai-google-scholar" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="#" class="link-dark" target="_blank">Google Scholar</a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="ai ai-orcid" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="#" class="link-dark" target="_blank">ORCID</a>
+                    </div>
+                </div>
             </aside>
 
             <!-- Main Content Area -->
@@ -172,22 +229,26 @@
                 <!-- About Me Section -->
                 <section id="aboutmeContent" class="mb-5 section">
                     <div class="container">
+                        <h2 class="section-heading mb-4">About</h2>
                         <div class="row language">
                             <p class="mt-2 justify">
-                                Hi, I'm a first-year Ph.D. Student at the University of Michigan Ann Arbor, where I'm a member of the <a href="https://strategicreasoning.org/">Strategic Reasoning Group</a> in the <a href="https://ai.engin.umich.edu/">AI Lab at Michigan</a>. I am extremely fortunate to be advised by <a href="https://strategicreasoning.org/michael-p-wellman/">Prof. Michael Wellman</a>.
+                                I'm a first-year Ph.D. Student at the University of Michigan Ann Arbor, where I'm a member of the <a href="https://strategicreasoning.org/">Strategic Reasoning Group</a> in the <a href="https://ai.engin.umich.edu/">AI Lab at Michigan</a>. I am advised by <a href="https://strategicreasoning.org/michael-p-wellman/">Prof. Michael Wellman</a>.
                             </p>
                             
-                            <p class="mt-2 justify">For undergrad, I attended Lafayette College, graduating in 2021. After Lafayette, I worked full-time while attending Tufts University to pursue my MS in Computer Science, where I had a great experience, worked on interesting research, and met many great people who supported my academic journey while I worked in industry. I graduated from Tufts in 2024.</p>
+                            <p class="mt-2 justify">I completed my undergraduate studies at Lafayette College (B.S., 2021) and received my M.S. in Computer Science from Tufts University (2024). During my master's, I balanced full-time industry work with academic research.</p>
                             
-                            <p class="mt-2 justify">Summer 2024, I worked as a research intern for the Air Force Research Lab (AFRL). I collaborated with the AI & Autonomous Decision Making Group and the Control Science Center, where I worked on differential game theory & pursuit-evasion games, GNNs, and graph theory. I was hosted by Dr. Scott Nivison.</p>
+                            <p class="mt-2 justify">In Summer 2024, I worked as a research intern for the Air Force Research Lab (AFRL), collaborating with the AI & Autonomous Decision Making Group and the Control Science Center on differential game theory, pursuit-evasion games, GNNs, and graph theory, hosted by Dr. Scott Nivison.</p>
                             
-                            <p class="mt-2 justify">I spent 2.5 years in industry after college, working as a software engineer at Capital One on their Low Latency Data Store team and developing software for real-time credit card fraud detection. I also spent time at Jefferies working as a Quantitative Researcher in fixed income.</p>
-
-                            <p class="mt-2 justify">I am also younger brother to Zach Smithline, a current art history PhD student at UC Berkeley (he does cool stuff I don't understand).  Check out his <a href="https://arthistory.berkeley.edu/people/zachary-smithline">website</a> for more information.  If you are here looking for Alex Smithline, he is my cousin & he makes cool films. Check out his production company, <a href="https://www.anotherwednesday.com/">another wednesday</a>.  </p>
+                            <p class="mt-2 justify">My industry experience includes 2.5 years as a software engineer at Capital One on their Low Latency Data Store team, developing software for real-time credit card fraud detection, and working as a Quantitative Researcher in fixed income at Jefferies.</p>
 
                             <h4 id="researchinterestsH4" class="mt-4" data-en="Research Interests">Research Interests</h4>
-                            <p class="mt-1" data-en=" My interests and current research span Multi-Agent Systems, Game Theory & Mechanism Design, AI Safety, and Mathematical Economics & Market Design."> My interests and current research span Multi-Agent Systems, Game Theory & Mechanism Design, AI Safety, and Mathematical Economics & Market Design.</p>
-
+                            <p class="mt-2 justify">My research interests span:</p>
+                            <ul>
+                                <li>Multi-Agent Systems</li>
+                                <li>Game Theory & Mechanism Design</li>
+                                <li>AI Safety</li>
+                                <li>Mathematical Economics & Market Design</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -196,35 +257,116 @@
                 <!-- Research Section -->
                 <section id="researchContent" class="mb-5 section">
                     <div class="container language">
-                        <h2 class="mb-4">Research Projects</h2>
+                        <h2 class="section-heading mb-4">Research</h2>
                         
-                        <div class="row mt-4">
-                            <h3 data-en="Creating a Cooperative AI Policymaking Platform through Open Source Collaboration"><a href="https://arxiv.org/abs/2412.06936" class="link-dark" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
-                            <div class="trnsf-thin">
-                                <p>Preprint (on going work): <a href="https://arxiv.org/abs/2412.06936" class="link-dark" target="_blank">arXiv:2412.06936</a></p>
-                                <p>Abstract: Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
-                            </div>
+                        <div class="research-item">
+                            <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
+                            <p class="text-muted">Preprint (ongoing work) | <a href="https://arxiv.org/abs/2412.06936" class="link-dark" target="_blank">arXiv:2412.06936</a></p>
+                            <p class="justify">Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
                         </div>
 
-                        <div class="row mt-4">
-                            <h3 data-en="Fast and the Furious: Hot Starts in Pursuit-Evasion Games">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
-                            <div class="trnsf-thin">
-                                <p>Abstract: Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
-                            </div>
+                        <div class="research-item">
+                            <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
+                            <p class="text-muted">AFRL Research Project | 2024</p>
+                            <p class="justify">Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
                         </div>
 
-                        <div class="row mt-4">
-                            <h3 data-en="Quantal Response-Based Defense in One vs. Many Stackelberg Security Games">Quantal Response-Based Defense in One vs. Many Stackelberg Security Games</h3>
-                            <div class="trnsf-thin">
-                                <p>During the 2023-2024 academic year, I researched Stackelberg Security Games and Deception. My work focused on finding reductions from Stackelberg Security Games to social planner problems in macroeconomic models.</p>
-                            </div>
+                        <div class="research-item">
+                            <h3 class="research-title">Quantal Response-Based Defense in One vs. Many Stackelberg Security Games</h3>
+                            <p class="text-muted">Tufts University | 2023-2024</p>
+                            <p class="justify">During the 2023-2024 academic year, I researched Stackelberg Security Games and Deception. My work focused on finding reductions from Stackelberg Security Games to social planner problems in macroeconomic models.</p>
                         </div>
 
-                        <div class="row mt-4">
-                            <h3 data-en="Understanding Eviction Rates Induced by COVID: A Statistical, Mechanism Design, and Game Theoretic Perspective">Understanding Eviction Rates Induced by COVID: A Statistical, Mechanism Design, and Game Theoretic Perspective</h3>
-                            <div class="trnsf-thin">
-                                <p>During the 2021 academic year, I researched the impacts of COVID-19 on the rental market in Pennsylvania and Easton. I approached this through statistics, econometrics, mechanism design, and game theory. I worked with the city of Easton to help implement these Mechanism Design solutions.</p>
+                        <div class="research-item">
+                            <h3 class="research-title">Understanding Eviction Rates Induced by COVID: A Statistical, Mechanism Design, and Game Theoretic Perspective</h3>
+                            <p class="text-muted">Lafayette College | 2021</p>
+                            <p class="justify">During the 2021 academic year, I researched the impacts of COVID-19 on the rental market in Pennsylvania and Easton. I approached this through statistics, econometrics, mechanism design, and game theory. I worked with the city of Easton to help implement these Mechanism Design solutions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Publications Section -->
+                <section id="publicationsContent" class="mb-5 section">
+                    <div class="container">
+                        <h2 class="section-heading mb-4">Publications</h2>
+                        <div class="row language">
+                            <div class="publication-item mb-4">
+                                <h4><a href="https://arxiv.org/abs/2412.06936" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h4>
+                                <p class="authors">Gabe Smithline, et al.</p>
+                                <p class="venue">Preprint, 2024</p>
+                                <p><a href="https://arxiv.org/abs/2412.06936" class="btn btn-sm btn-outline-primary">Paper</a></p>
                             </div>
+                            <!-- Add more publications when available -->
+                            <div class="alert alert-info">
+                                More publications coming soon. Please check back later.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Teaching Section -->
+                <section id="teachingContent" class="mb-5 section">
+                    <div class="container">
+                        <h2 class="section-heading mb-4">Teaching</h2>
+                        <div class="row language">
+                            <div class="teaching-item mb-4">
+                                <h4>Graduate Student Instructor</h4>
+                                <p class="course">University of Michigan</p>
+                                <p class="details">Content to be updated with teaching experience</p>
+                            </div>
+                            <!-- Placeholder for future teaching positions -->
+                            <div class="alert alert-info">
+                                Teaching section will be updated with more information as it becomes available.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CV Section -->
+                <section id="cvContent" class="mb-5 section">
+                    <div class="container">
+                        <h2 class="section-heading mb-4">Curriculum Vitae</h2>
+                        <div class="row language">
+                            <p>You can download my CV by clicking the button below:</p>
+                            <p><a href="assets/documents/Gabe_s_Resume_Career_Fair.pdf" class="btn btn-primary" target="_blank">Download CV (PDF)</a></p>
+                            
+                            <h4 class="mt-4">Education</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>Ph.D., Computer Science</strong><br>
+                                    University of Michigan, Ann Arbor<br>
+                                    2024 - Present
+                                </li>
+                                <li class="mb-3">
+                                    <strong>M.S., Computer Science</strong><br>
+                                    Tufts University<br>
+                                    2024
+                                </li>
+                                <li class="mb-3">
+                                    <strong>B.S.</strong><br>
+                                    Lafayette College<br>
+                                    2021
+                                </li>
+                            </ul>
+                            
+                            <h4 class="mt-4">Professional Experience</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>Research Intern</strong><br>
+                                    Air Force Research Lab (AFRL)<br>
+                                    Summer 2024
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Quantitative Researcher</strong><br>
+                                    Jefferies<br>
+                                    2022 - 2024
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Software Engineer</strong><br>
+                                    Capital One<br>
+                                    2021 - 2022
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -232,7 +374,7 @@
                 <!-- Athletics Section -->
                 <section id="athleticsContent" class="mb-5 section">
                     <div class="container">
-                        <h2 class="mb-4" data-en="Division I Athletics Experience">Division I Athletics Experience</h2>
+                        <h2 class="section-heading mb-4" data-en="Division I Athletics Experience">Athletics</h2>
                         <div class="row language">
                             <p class="mt-2 justify">
                                 During my time at Lafayette, I played four years of Division I lacrosse. I was honored to receive the David Heard award from the Athletic Department at Lafayette College. I was fortunate to play alongside some of the best players and coaches in the world and create lasting memories.
@@ -258,6 +400,31 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Gabe Smithline</p>
+                    <p class="small">Last updated: March 2024</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>
+                        <a href="mailto:gsmithl@umich.edu" class="text-decoration-none me-3">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="text-decoration-none me-3" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/gsmithline" class="text-decoration-none" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
