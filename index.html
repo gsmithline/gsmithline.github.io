@@ -60,15 +60,22 @@
             border-bottom: none;
         }
         .research-title a {
-            color: #00274c;
+            color: #0077cc;
             text-decoration: none;
         }
         .research-title a:hover {
             text-decoration: underline;
         }
+        .text-muted {
+            color: #505050 !important;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+        }
+        /* Style for publication links */
+        .publication-item a {
+            color: #0077cc;
         }
     </style>
 </head>
@@ -106,22 +113,19 @@
             <div class="navbar-collapse collapse flex-grow-1 justify-content-center" id="collapsingNavbar3">
                 <ul class="navbar-nav mx-auto language" id="navbarList">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#aboutmeContent" data-en="About">About</a>
+                        <a class="nav-link active" href="index.html" data-en="About">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#researchContent" data-en="Research">Research</a>
+                        <a class="nav-link" href="research.html" data-en="Research">Research</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#publicationsContent" data-en="Publications">Publications</a>
+                        <a class="nav-link" href="publications.html" data-en="Publications">Publications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#teachingContent" data-en="Teaching">Teaching</a>
+                        <a class="nav-link" href="teaching.html" data-en="Teaching">Teaching</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#cvContent" data-en="CV">CV</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#athleticsContent" data-en="Athletics">Athletics</a>
+                        <a class="nav-link" href="athletics.html" data-en="Athletics">Athletics</a>
                     </li>
                 </ul>
             </div>
@@ -227,7 +231,7 @@
             <!-- Main Content Area -->
             <div class="col-md-8 offset-md-1">
                 <!-- About Me Section -->
-                <section id="aboutmeContent" class="mb-5 section">
+                <section id="aboutmeContent" class="mb-5">
                     <div class="container">
                         <h2 class="section-heading mb-4">About</h2>
                         <div class="row language">
@@ -249,151 +253,6 @@
                                 <li>AI Safety</li>
                                 <li>Mathematical Economics & Market Design</li>
                             </ul>
-                        </div>
-                    </div>
-                </section>
-            
-
-                <!-- Research Section -->
-                <section id="researchContent" class="mb-5 section">
-                    <div class="container language">
-                        <h2 class="section-heading mb-4">Research</h2>
-                        
-                        <div class="research-item">
-                            <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
-                            <p class="text-muted">Preprint (ongoing work) | <a href="https://arxiv.org/abs/2412.06936" class="link-dark" target="_blank">arXiv:2412.06936</a></p>
-                            <p class="justify">Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
-                        </div>
-
-                        <div class="research-item">
-                            <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
-                            <p class="text-muted">AFRL Research Project | 2024</p>
-                            <p class="justify">Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
-                        </div>
-
-                        <div class="research-item">
-                            <h3 class="research-title">Quantal Response-Based Defense in One vs. Many Stackelberg Security Games</h3>
-                            <p class="text-muted">Tufts University | 2023-2024</p>
-                            <p class="justify">During the 2023-2024 academic year, I researched Stackelberg Security Games and Deception. My work focused on finding reductions from Stackelberg Security Games to social planner problems in macroeconomic models.</p>
-                        </div>
-
-                        <div class="research-item">
-                            <h3 class="research-title">Understanding Eviction Rates Induced by COVID: A Statistical, Mechanism Design, and Game Theoretic Perspective</h3>
-                            <p class="text-muted">Lafayette College | 2021</p>
-                            <p class="justify">During the 2021 academic year, I researched the impacts of COVID-19 on the rental market in Pennsylvania and Easton. I approached this through statistics, econometrics, mechanism design, and game theory. I worked with the city of Easton to help implement these Mechanism Design solutions.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Publications Section -->
-                <section id="publicationsContent" class="mb-5 section">
-                    <div class="container">
-                        <h2 class="section-heading mb-4">Publications</h2>
-                        <div class="row language">
-                            <div class="publication-item mb-4">
-                                <h4><a href="https://arxiv.org/abs/2412.06936" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h4>
-                                <p class="authors">Gabe Smithline, et al.</p>
-                                <p class="venue">Preprint, 2024</p>
-                                <p><a href="https://arxiv.org/abs/2412.06936" class="btn btn-sm btn-outline-primary">Paper</a></p>
-                            </div>
-                            <!-- Add more publications when available -->
-                            <div class="alert alert-info">
-                                More publications coming soon. Please check back later.
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Teaching Section -->
-                <section id="teachingContent" class="mb-5 section">
-                    <div class="container">
-                        <h2 class="section-heading mb-4">Teaching</h2>
-                        <div class="row language">
-                            <div class="teaching-item mb-4">
-                                <h4>Graduate Student Instructor</h4>
-                                <p class="course">University of Michigan</p>
-                                <p class="details">Content to be updated with teaching experience</p>
-                            </div>
-                            <!-- Placeholder for future teaching positions -->
-                            <div class="alert alert-info">
-                                Teaching section will be updated with more information as it becomes available.
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- CV Section -->
-                <section id="cvContent" class="mb-5 section">
-                    <div class="container">
-                        <h2 class="section-heading mb-4">Curriculum Vitae</h2>
-                        <div class="row language">
-                            <p>You can download my CV by clicking the button below:</p>
-                            <p><a href="assets/documents/Gabe_s_Resume_Career_Fair.pdf" class="btn btn-primary" target="_blank">Download CV (PDF)</a></p>
-                            
-                            <h4 class="mt-4">Education</h4>
-                            <ul class="list-unstyled">
-                                <li class="mb-3">
-                                    <strong>Ph.D., Computer Science</strong><br>
-                                    University of Michigan, Ann Arbor<br>
-                                    2024 - Present
-                                </li>
-                                <li class="mb-3">
-                                    <strong>M.S., Computer Science</strong><br>
-                                    Tufts University<br>
-                                    2024
-                                </li>
-                                <li class="mb-3">
-                                    <strong>B.S.</strong><br>
-                                    Lafayette College<br>
-                                    2021
-                                </li>
-                            </ul>
-                            
-                            <h4 class="mt-4">Professional Experience</h4>
-                            <ul class="list-unstyled">
-                                <li class="mb-3">
-                                    <strong>Research Intern</strong><br>
-                                    Air Force Research Lab (AFRL)<br>
-                                    Summer 2024
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Quantitative Researcher</strong><br>
-                                    Jefferies<br>
-                                    2022 - 2024
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Software Engineer</strong><br>
-                                    Capital One<br>
-                                    2021 - 2022
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Athletics Section -->
-                <section id="athleticsContent" class="mb-5 section">
-                    <div class="container">
-                        <h2 class="section-heading mb-4" data-en="Division I Athletics Experience">Athletics</h2>
-                        <div class="row language">
-                            <p class="mt-2 justify">
-                                During my time at Lafayette, I played four years of Division I lacrosse. I was honored to receive the David Heard award from the Athletic Department at Lafayette College. I was fortunate to play alongside some of the best players and coaches in the world and create lasting memories.
-                                I was also fortunate to play on the US U-19 National Box lacrosse team while in school, and represented the United States on the Brogden Cup team.
-                            </p>
-                            <div class="row">
-                                <div class="col-6 col-md-4 mb-3">
-                                    <img src="assets/documents/imgs/memento1.png" class="img-fluid memento-img" alt="Lacrosse Memento 1">
-                                </div>
-                                <div class="col-6 col-md-4 mb-3">
-                                    <img src="assets/documents/imgs/memento2.jpg" class="img-fluid memento-img" alt="Lacrosse Memento 2">
-                                </div>
-                                <div class="col-6 col-md-4 mb-3">
-                                    <img src="assets/documents/imgs/memento3.jpg" class="img-fluid memento-img" alt="Lacrosse Memento 3">
-                                </div>
-                                <div class="col-6 col-md-6 mb-3">
-                                    <img src="assets/documents/imgs/memento4.jpg" class="img-fluid memento-img" alt="Lacrosse Memento 4">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
