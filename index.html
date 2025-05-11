@@ -27,11 +27,19 @@
         .logos img {
             max-width: 80px;
             margin: 10px;
+            height: auto;
+            object-fit: contain;
         }
         .logos .col {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+        .logo-container {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .memento-img {
             width: 100%;
@@ -142,28 +150,34 @@
             
                 <!-- Affiliations Section -->
                 <div class="logos">
-                    <div class="row g-3">
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                            <a href="https://www.lafayette.edu/" target="_blank">
-                                <img src="assets/documents/imgs/lafayette.png" class="img-fluid" alt="Lafayette College Logo" style="max-width: 120px;">
-                            </a>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="logo-container">
+                                <a href="https://www.lafayette.edu/" target="_blank">
+                                    <img src="assets/documents/imgs/lafayette.png" class="img-fluid" alt="Lafayette College Logo" style="max-width: 100px;">
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                            <a href="https://www.tufts.edu/" target="_blank">
-                                <img src="assets/documents/imgs/tufts.png" class="img-fluid" alt="Tufts University Logo" style="max-width: 120px;">
-                            </a>
+                        <div class="col-6">
+                            <div class="logo-container">
+                                <a href="https://www.tufts.edu/" target="_blank">
+                                    <img src="assets/documents/imgs/tufts.png" class="img-fluid" alt="Tufts University Logo" style="max-width: 100px;">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row g-3 mt-3">
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                            <a href="https://umich.edu/" target="_blank">
-                                <img src="assets/documents/imgs/umich.png" class="img-fluid" alt="University of Michigan Logo" style="max-width: 120px;">
-                            </a>
+                        <div class="col-6">
+                            <div class="logo-container">
+                                <a href="https://umich.edu/" target="_blank">
+                                    <img src="assets/documents/imgs/umich.png" class="img-fluid" alt="University of Michigan Logo" style="max-width: 100px;">
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                            <a href="https://strategicreasoning.org/" target="_blank">
-                                <img src="assets/documents/imgs/SRG-white.png" class="img-fluid" alt="SRG Logo" style="max-width: 160px;">
-                            </a>
+                        <div class="col-6">
+                            <div class="logo-container">
+                                <a href="https://strategicreasoning.org/" target="_blank">
+                                    <img src="assets/documents/imgs/SRG-white.png" class="img-fluid" alt="SRG Logo" style="max-width: 120px;">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,9 +244,9 @@
                 <!-- About Me Section -->
                 <section id="aboutmeContent" class="mb-5">
                     <div class="container">
-                        <h2 class="section-heading mb-4">About</h2>
-                        <div class="row language">
+                        <div class="row">
                             <div class="col-md-8">
+                                <h2 class="section-heading mb-4">About</h2>
                                 <p class="mt-2 justify">
                                     I'm a first-year Ph.D. Student at the University of Michigan Ann Arbor, where I'm a member of the <a href="https://strategicreasoning.org/">Strategic Reasoning Group</a> in the <a href="https://ai.engin.umich.edu/">AI Lab at Michigan</a>. I am extremely fortunate to be advised by <a href="https://strategicreasoning.org/michael-p-wellman/">Prof. Michael Wellman</a>.
                                 </p>
@@ -253,8 +267,8 @@
                                 </ul>
                                 <p class="mt-2 justify">I am currently working on research related to computational game theory and AI Safety.</p>
                             </div>
-                            <div class="col-md-4 text-center">
-                                <img src="assets/documents/imgs/afrl_team.png" class="img-fluid rounded profilepicture" alt="AFRL Research Team" style="max-height: 250px; object-fit: cover;">
+                            <div class="col-md-4 text-center d-flex flex-column justify-content-start align-items-center">
+                                <img src="assets/documents/imgs/afrl_team.png" class="img-fluid rounded profilepicture" alt="AFRL Research Team" style="max-height: 300px; object-fit: cover; margin-top: 0;">
                                 <p class="small text-muted">A memento from my time with the AFRL.</p>
                             </div>
                         </div>
