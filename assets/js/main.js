@@ -7,16 +7,17 @@ $(document).ready(function(){
 	$('#conferencesContent').hide();
 	$('#projectsContent').hide();
 	$('#blogContent').hide();
-	$('#academicContent').hide();
-	$('#particularContent').hide();
-	// $('#photosContent').hide();
+        $('#academicContent').hide();
+        $('#particularContent').hide();
+        $('#updatesContent').hide();
+        // $('#photosContent').hide();
 
 	// Options menu is hidden by default
 	$('#theme').hide();
 	$('#lan').hide();
 
 	// Handle 'About Me' content
-	$('#aboutme').click(function(e) {
+        $('#aboutme').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
@@ -29,12 +30,26 @@ $(document).ready(function(){
 
 			// Show current content
 			activateDiv('#aboutmeContent');
-		}
+                }
 
-	});
+        });
 
-	// Handle 'Education' content
-	$('#education').click(function(e) {
+        // Handle 'Updates' content
+        $('#updates').click(function(e) {
+
+                if(!$(e.target).hasClass('active')) {
+                        clearActiveLinks();
+                        activateLink(e);
+
+                        clearActiveDivs();
+
+                        activateDiv('#updatesContent');
+                }
+
+        });
+
+        // Handle 'Education' content
+        $('#education').click(function(e) {
 
 		// If the div has already the class active, no need to reload the divs...
 		if(!$(e.target).hasClass('active')) {
