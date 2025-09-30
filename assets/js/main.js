@@ -12,7 +12,6 @@ $(document).ready(function(){
 	// $('#photosContent').hide();
 
 	// Options menu is hidden by default
-	$('#theme').hide();
 	$('#lan').hide();
 
 	// Handle 'About Me' content
@@ -215,12 +214,8 @@ $(document).ready(function(){
 	// Omit this part if you don't have more content
 	// *************************** //
 	
-	// If the user has not selected a theme, then select the default one according to the user's preferences
-	if(localStorage.getItem("theme") === null){
-		localStorage.theme = "light";
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-			localStorage.theme = "dark";
-	}
+	// Force light theme always
+	localStorage.theme = "light";
 
 	// Always load the light theme
 	$('<link>').appendTo('head').attr({
@@ -229,58 +224,21 @@ $(document).ready(function(){
 		href: 'assets/css/light.css'
 	});
 
-	// If the user has the dark theme, then replace the light theme with the dark one
-	if (localStorage.theme == "dark") {
-		$("link[href='assets/css/light.css']").remove();
-		$('<link>').appendTo('head').attr({
-			type: 'text/css', 
-			rel: 'stylesheet',
-			href: 'assets/css/dark.css'
-		});
-		$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
-	}
+	// Dark theme disabled
 
 	// Controls the option menu toggler to show/hide the language and theme selectors
 	$('#options-toggler').click(function(e) {
 		if(!$(e.currentTarget).hasClass('active')) {
 			$(e.currentTarget).addClass('active');
-			$('#theme').show("fast");
 			$('#lan').show("fast");
 		}
 		else {
 			$(e.currentTarget).removeClass('active');
-			$('#theme').hide("fast");
 			$('#lan').hide("fast");
 		}
 	})
 
-	// Alternates between light and dark themes
-	$('#theme').click(function(e) {
-		if(localStorage.theme != "dark"){
-			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb-slash'></i>");
-
-			localStorage.theme = "dark"
-			
-			$("link[href='assets/css/light.css']").remove();
-			$('<link>').appendTo('head').attr({
-				type: 'text/css', 
-				rel: 'stylesheet',
-				href: 'assets/css/dark.css'
-			});
-		}
-		else {
-			$('#theme').empty().append("<i class='fa-duotone fa-lightbulb'></i>");
-
-			localStorage.theme = "light"
-			
-			$("link[href='assets/css/dark.css']").remove();
-			$('<link>').appendTo('head').attr({
-				type: 'text/css', 
-				rel: 'stylesheet',
-				href: 'assets/css/light.css'
-			});
-		}
-	})
+	// Theme toggle disabled
 
 	
 	// Create the language manager
