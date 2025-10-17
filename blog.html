@@ -8,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Gabe Smithline's teaching experience - Computer Science Ph.D. Candidate at University of Michigan." />
-    <meta name="keywords" content="Gabe Smithline, Gabriel Smithline, Computer Science, PhD, University of Michigan, Teaching, Machine Learning" />
+    <meta name="description" content="Gabe Smithline's blog updates and insights." />
+    <meta name="keywords" content="Gabe Smithline, blog, Computer Science, Multi-Agent Systems, Game Theory, AI Safety" />
     <meta name="author" content="Gabe Smithline" />
     <meta name="robots" content="index,follow" />
     <meta name="copyright" content="Work protected by copyright; no distribution without permission." />
 
     <!-- Title + Icon -->
-    <title>Teaching | Gabe Smithline</title>
+    <title>Blog | Gabe Smithline</title>
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -24,20 +24,6 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        .logos img {
-            max-width: 80px;
-            margin: 10px;
-        }
-        .logos .col {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .memento-img {
-            width: 100%;
-            max-width: 300px;
-            margin-bottom: 15px;
-        }
         .section {
             padding-top: 60px;
             margin-top: -60px;
@@ -45,68 +31,13 @@
         html {
             scroll-behavior: smooth;
         }
-        /* Additional academic styling */
-        .section-heading {
-            border-bottom: 2px solid #00274c;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .research-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .research-item:last-child {
-            border-bottom: none;
-        }
-        .research-title a {
-            color: #0077cc; /* Brighter blue for better visibility */
-            text-decoration: none;
-        }
-        .research-title a:hover {
-            text-decoration: underline;
-        }
-        .text-muted {
-            color: #505050 !important; /* Darker color for better contrast on light backgrounds */
-        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        /* Style for publication links */
-        .publication-item a {
-            color: #0077cc; /* Matching the research links */
-        }
-        /* Teaching specific styles */
-        .teaching-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .teaching-item:last-child {
-            border-bottom: none;
-        }
-        .course {
-            font-weight: 500;
-            color: #505050;
-        }
-        .period {
-            font-style: italic;
-            color: #505050;
-            margin-bottom: 10px;
-        }
-        /* School-specific colors */
-        .lafayette {
-            color: #CC0033; /* Lafayette Maroon */
-        }
-        .lafayette .period {
-            color: #CC0033;
-        }
-        .tufts {
-            color: #3E8EDE; /* Tufts Light Blue */
-        }
-        .tufts .period {
-            color: #3E8EDE;
+        .coming-soon-card {
+            border: 1px dashed #00274c;
+            background: #f8fafc;
         }
     </style>
 </head>
@@ -149,10 +80,10 @@
                         <a class="nav-link" href="research.html" data-en="Research">Research</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="teaching.html" data-en="Teaching">Teaching</a>
+                        <a class="nav-link" href="teaching.html" data-en="Teaching">Teaching</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html" data-en="Blog">Blog</a>
+                        <a class="nav-link active" href="blog.html" data-en="Blog">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="athletics.html" data-en="Athletics">Athletics</a>
@@ -172,7 +103,7 @@
                 </div>
                 <h3 class="mb-2">Gabe Smithline</h3>
                 <p class="mb-4 t-secondary" data-en="Ph.D. Candidate in Computer Science at the University of Michigan Ann Arbor">Ph.D. Candidate in Computer Science at the University of Michigan Ann Arbor</p>
-            
+
                 <!-- Contact Information -->
                 <h4 class="mt-4 mb-3">Contact</h4>
                 <div class="row mb-2">
@@ -193,7 +124,7 @@
                         <a href="mailto:gsmithl@umich.edu" class="link-dark">gsmithl@umich.edu</a>
                     </div>
                 </div>
-                
+
                 <!-- Social/Academic Links -->
                 <h4 class="mt-4 mb-3">Links</h4>
                 <div class="row mb-2">
@@ -240,31 +171,13 @@
 
             <!-- Main Content Area -->
             <div class="col-md-8 offset-md-1">
-                <!-- Teaching Section -->
-                <section id="teachingContent" class="mb-5">
-                    <div class="container">
-                        <h2 class="section-heading mb-4">Teaching</h2>
-                        <div class="row language">
-                            <div class="teaching-item mb-4">
-                                <h4>Teaching Assistant - CS 135: Introduction to Machine Learning</h4>
-                                <p class="course tufts">Tufts University</p>
-                                <p class="period tufts">September 2023 - May 2024</p>
-                                <p class="details">Assisted with course instruction, office hours, and grading for the undergraduate machine learning course. Helped students understand fundamental machine learning concepts, algorithms, and implementation.</p>
-                            </div>
-
-                            <div class="teaching-item mb-4">
-                                <h4>Teaching Assistant - CM 151: Computational Methods</h4>
-                                <p class="course lafayette">Lafayette College</p>
-                                <p class="period lafayette">January 2021 - May 2021</p>
-                                <p class="details">Provided instructional support and office hours for undergraduate students learning computational methods. Assisted with assignments, grading, and lab sessions.</p>
-                            </div>
-
-                            <div class="teaching-item mb-4">
-                                <h4>Teaching Assistant - ECON 253: Econometrics</h4>
-                                <p class="course lafayette">Lafayette College</p>
-                                <p class="period lafayette">January 2020 - December 2020</p>
-                                <p class="details">Supported students in econometrics coursework, helping with statistical methods and economic data analysis. Conducted office hours and assisted with grading assignments and exams.</p>
-                            </div>
+                <section id="blogContent" class="mb-5">
+                    <div class="container language">
+                        <h2 class="section-heading mb-4">Blog</h2>
+                        <div class="card coming-soon-card p-4">
+                            <h3 class="mb-3">Coming Soon</h3>
+                            <p class="mb-3">Check back soon for posts on research updates, teaching reflections, and athletics insights.</p>
+                            <p class="mb-0"><strong>To-do:</strong> Self-study in interpretability loading...</p>
                         </div>
                     </div>
                 </section>
@@ -272,36 +185,11 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-light py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2024 Gabe Smithline</p>
-                    <p class="small">Last updated: March 2024</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p>
-                        <a href="mailto:gsmithl@umich.edu" class="text-decoration-none me-3">
-                            <i class="fa-regular fa-envelope"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="text-decoration-none me-3" target="_blank">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/gsmithline" class="text-decoration-none" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6+fMdQMz2Au9wIJ7l6ARLbW+B5zYl5poaNSIB5I76PCR5d5hJQv" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="assets/js/languageManager.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
-</html> 
+
+</html>
