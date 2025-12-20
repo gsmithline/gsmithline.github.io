@@ -18,64 +18,48 @@
     <title>Research | Gabe Smithline</title>
 
     <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        .logos img {
-            max-width: 80px;
-            margin: 10px;
+        /* Research-specific styles */
+        .research-meta {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
         }
-        .logos .col {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .research-meta .venue {
+            color: var(--umich-blue);
+            font-weight: 500;
         }
-        .memento-img {
-            width: 100%;
-            max-width: 300px;
-            margin-bottom: 15px;
+        .research-meta .year {
+            color: var(--text-muted);
         }
-        .section {
-            padding-top: 60px;
-            margin-top: -60px;
+        .research-abstract {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
         }
-        html {
-            scroll-behavior: smooth;
+        .research-links {
+            margin-top: 0.75rem;
         }
-        /* Additional academic styling */
-        .section-heading {
-            border-bottom: 2px solid #00274c;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        .research-links a {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--bg-light);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 8px;
+            transition: all 0.2s ease;
         }
-        .research-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .research-item:last-child {
-            border-bottom: none;
-        }
-        .research-title a {
-            color: #0077cc; /* Brighter blue for better visibility */
+        .research-links a:hover {
+            background-color: var(--umich-blue);
+            color: white;
             text-decoration: none;
-        }
-        .research-title a:hover {
-            text-decoration: underline;
-        }
-        .text-muted {
-            color: #505050 !important; /* Darker color for better contrast on light backgrounds */
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-        /* Style for publication links */
-        .publication-item a {
-            color: #0077cc; /* Matching the research links */
         }
     </style>
 </head>
@@ -254,25 +238,26 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light py-4 mt-5">
+    <footer>
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-md-6">
                     <p>&copy; 2025 Gabe Smithline</p>
-                    <p class="small">Last updated: August 2025</p>
+                    <p class="small">Last updated: December 2025</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p>
-                        <a href="mailto:gsmithl@umich.edu" class="text-decoration-none me-3">
-                            <i class="fa-regular fa-envelope"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="text-decoration-none me-3" target="_blank">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/gsmithline" class="text-decoration-none" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </p>
+                    <a href="mailto:gsmithl@umich.edu" class="me-3" title="Email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="me-3" target="_blank" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/gsmithline" class="me-3" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&hl=en&authuser=1" target="_blank" title="Google Scholar">
+                        <i class="ai ai-google-scholar"></i>
+                    </a>
                 </div>
             </div>
         </div>
