@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Causality and Game Theory: Structural Connections - A blog post exploring the mathematical bridge between causal inference and strategic reasoning." />
+    <meta name="keywords" content="Gabe Smithline, Causality, Game Theory, MAIDs, Multi-Agent Influence Diagrams, SCM, Structural Causal Models" />
+    <meta name="author" content="Gabe Smithline" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Title + Icon -->
+    <title>Causality and Game Theory | Gabe Smithline</title>
+
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true,
+                macros: {
+                    do: '\\mathrm{do}',
+                    argmax: '\\operatorname*{arg\\,max}',
+                    argmin: '\\operatorname*{arg\\,min}'
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    
+    <style>
+        /* Blog Post Specific Styles */
+        .blog-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .blog-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--umich-blue);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        
+        .blog-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .blog-meta .author {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            transition: color var(--transition-fast);
+        }
+        
+        .back-link:hover {
+            color: var(--umich-blue);
+            text-decoration: none;
+        }
+        
+        /* Article Content */
+        .blog-content {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content h2 {
+            font-family: var(--font-sans);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--umich-blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--umich-maize);
+        }
+        
+        .blog-content h3 {
+            font-family: var(--font-sans);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-content h4 {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+        }
+        
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Math display */
+        .blog-content .MathJax {
+            font-size: 1rem;
+        }
+        
+        /* Figure styles */
+        .figure-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .figure-caption {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .figure-caption strong {
+            color: var(--text-secondary);
+        }
+        
+        /* Game theory table (payoff matrix) */
+        .payoff-matrix {
+            width: auto;
+            margin: 1rem auto;
+            border-collapse: collapse;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+        }
+        
+        .payoff-matrix th, .payoff-matrix td {
+            padding: 12px 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .payoff-matrix th {
+            background: var(--umich-blue);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .payoff-matrix td:first-child {
+            background: var(--umich-blue);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .payoff-matrix td {
+            background: white;
+        }
+        
+        /* Diagram styles */
+        .diagram-svg {
+            display: block;
+            margin: 1rem auto;
+            max-width: 100%;
+        }
+        
+        /* Definition/theorem boxes */
+        .definition-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+            border-left: 4px solid var(--umich-blue);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .definition-box strong {
+            color: var(--umich-blue);
+        }
+        
+        /* Blockquote for emphasis */
+        .blog-content blockquote {
+            border-left: 4px solid var(--umich-maize);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        /* References section */
+        .references {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border-color);
+        }
+        
+        .references h2 {
+            font-size: 1.3rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .references ol {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            padding-left: 1.5rem;
+        }
+        
+        .references li {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Tags */
+        .blog-tags-container {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .blog-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag-game-theory { background: #dbeafe; color: #1e40af; }
+        .tag-causality { background: #fef3c7; color: #92400e; }
+        .tag-ai { background: #d1fae5; color: #065f46; }
+        
+        /* Node styles for diagrams */
+        .node {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-weight: 500;
+        }
+        
+        .node-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #374151;
+            background: white;
+        }
+        
+        .node-rect {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 2px solid #374151;
+            background: #f3f4f6;
+        }
+        
+        .node-decision {
+            padding: 6px 12px;
+            border: 2px solid #374151;
+            background: #dbeafe;
+        }
+        
+        .node-utility {
+            width: 50px;
+            height: 40px;
+            transform: rotate(45deg);
+            border: 2px solid #374151;
+            background: #fee2e2;
+        }
+        
+        .node-utility span {
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Analytics Script -->
+    <script>
+        fetch('../assets/js/config.json')
+            .then(response => response.json())
+            .then(config => {
+                const scriptTag = document.createElement('script');
+                scriptTag.async = true;
+                scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${config.googleAnalyticsMeasurementId}`;
+                document.head.appendChild(scriptTag);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', config.googleAnalyticsMeasurementId);
+            })
+            .catch(error => console.error('Error loading the configuration:', error));
+    </script>
+
+    <!-- Bottom rounded buttons -->
+    <div class="options-button" id="options-toggler"><i class="fa-light fa-arrows-repeat"></i></div>
+    <div class="options-button" id="lan"><img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="Flag indicating the English language is selected"></div>
+
+    <!-- Navbar -->
+    <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light flex-md-nowrap flex-wrap sticky-top">
+        <div class="container justify-content-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse flex-grow-1 justify-content-center" id="collapsingNavbar3">
+                <ul class="navbar-nav mx-auto language" id="navbarList">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html" data-en="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../research.html" data-en="Research">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../teaching.html" data-en="Teaching">Teaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../blog.html" data-en="Blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../athletics.html" data-en="Athletics">Athletics</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="main-content">
+        <div class="row content" id="section-content">
+            <!-- Profile and Contact Info Sidebar -->
+            <aside id="leftPanel" class="col-12 col-md-3 language mb-4 mb-md-0">
+                <div class="row mb-3">
+                    <div class="col">
+                        <img src="../assets/documents/imgs/me.jpg" class="rounded me-auto d-block img-fluid profilepicture" alt="Gabe Smithline profile picture">
+                    </div>
+                </div>
+                <h3 class="mb-2">Gabe Smithline</h3>
+                <p class="mb-4 t-secondary" data-en="Ph.D. Candidate in Electrical Engineering and Computer Science at the University of Michigan">Ph.D. Candidate in Electrical Engineering and Computer Science at the University of Michigan</p>
+
+                <!-- Contact Information -->
+                <h4 class="mt-4 mb-3">Contact</h4>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="fal fa-map-marker-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <span data-en="Ann Arbor, Michigan">Ann Arbor, Michigan</span><br />
+                        <span data-en="United States">United States</span>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="mailto:gsmithl@umich.edu" class="link-dark">gsmithl@umich.edu</a>
+                    </div>
+                </div>
+
+                <!-- Social/Academic Links -->
+                <h4 class="mt-4 mb-3">Links</h4>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="link-dark" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="https://github.com/gsmithline" class="link-dark" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="ai ai-google-scholar" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&hl=en&authuser=1" class="link-dark" target="_blank">Google Scholar</a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-1">
+                        <i class="ai ai-orcid" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="https://orcid.org/0009-0001-7091-5367" class="link-dark" target="_blank">ORCID</a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="col-md-8 offset-md-1">
+                <article>
+                    <a href="../blog.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Blog
+                    </a>
+                    
+                    <header class="blog-header">
+                        <h1 class="blog-title">Causality and Game Theory: Structural Connections</h1>
+                        <div class="blog-meta">
+                            <span class="author">Gabe Smithline</span> · December 2025
+                        </div>
+                    </header>
+                    
+                    <div class="blog-content">
+                        <h2>1. Introduction</h2>
+                        
+                        <p>Causality and game theory are two mathematical frameworks for reasoning about the world, but they were built to answer different questions. Broadly, causality asks what would happen if we intervened in a system. It distinguishes association from intervention and counterfactuals, and it formalizes how outcomes change under \(\do(\cdot)\) operations and structural assumptions. Game theory asks what outcomes are stable when multiple decision-makers strategically choose actions while anticipating each other. From that, it defines solution concepts for structured strategic interactions.</p>
+                        
+                        <p>At first glance, these perspectives can feel a bit at odds. Standard causal reasoning treats interventions as exogenous manipulations that sever incoming influences, whereas in a strategic setting, changing an upstream variable often changes how other agents respond. Conversely, game-theoretic reasoning is inherently counterfactual (think about the definition of a Nash equilibrium, it is reasoning about deviations), yet the relevant counterfactual in a game is rarely "hold everything else fixed" in the Pearl sense, because other agents may rationally adjust.</p>
+                        
+                        <p>This tension becomes clear as soon as you ask questions that mix both lenses. What is the effect of changing the information structure? How do commitments or mechanism changes propagate through strategic responses? What is the causal contribution of introducing a new strategy into a population of strategies that will re-equilibrate? At what level can these ideas be brought together?</p>
+                        
+                        <p>In this post I am going to do two things. First, I will give quick background on the objects from game theory and causality that we will actually use. Second, I will show one clean structural bridge between the two, built around Multiagent Influence Diagrams (MAIDs), and explain what it really means to ask a causal question inside a game.</p>
+                        
+                        <h2>2. Background</h2>
+                        
+                        <h3>2.1 Game Theory</h3>
+                        
+                        <p>Game theory is a mathematical language for strategic situations: settings in which each agent's outcome depends not only on their own decisions, but also on the decisions of others. Formally, a <em>game</em> specifies (i) who the players are, (ii) what each player can do, (iii) what each player knows when they move, and (iv) how the joint choices map to payoffs. The core objects are <em>strategies</em> (complete contingent plans) and <em>solution concepts</em> (predictions of stable behavior under rational choice).</p>
+                        
+                        <p>If you have seen game theory before, you can treat this section as a refresher. I am keeping it here because later, when we talk about interventions and equilibrium response, the details of what is a "strategy" and what is "fixed" will matter.</p>
+                        
+                        <h4>Normal-form (strategic-form) games</h4>
+                        
+                        <p>A finite normal-form game is a tuple</p>
+                        
+                        \[\Gamma = \bigl(N, (A_i)_{i\in N}, (u_i)_{i\in N}\bigr),\]
+                        
+                        <p>where \(N=\{1,\dots,n\}\) is the set of players, \(A_i\) is player \(i\)'s (finite) action set, and \(u_i:\prod_{j\in N} A_j \to \mathbb{R}\) is player \(i\)'s payoff function. A (mixed) strategy for player \(i\) is a distribution \(\sigma_i \in \Delta(A_i)\), and a strategy profile is \(\sigma=(\sigma_1,\dots,\sigma_n)\in \prod_i \Delta(A_i)\). The expected payoff under \(\sigma\) is</p>
+                        
+                        \[u_i(\sigma) = \sum_{a\in \prod_j A_j}\Bigl(\prod_{j\in N}\sigma_j(a_j)\Bigr)\,u_i(a).\]
+                        
+                        <p>A game is <em>zero-sum</em> (two-player) if \(u_1(a) + u_2(a) = 0\) for all \(a\) (more generally, it is <em>constant-sum</em> if the sum is a constant independent of \(a\)). Otherwise, it is <em>general-sum</em>. Here incentives can be partially aligned, partially opposed, and cooperation may create surplus while competition determines how it is split.</p>
+                        
+                        <!-- Figure 1: Payoff Matrix -->
+                        <div class="figure-container">
+                            <table class="payoff-matrix">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Cooperate (C)</th>
+                                        <th>Defect (D)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Cooperate (C)</td>
+                                        <td>(-1, -1)</td>
+                                        <td>(-7, -0.5)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Defect (D)</td>
+                                        <td>(-0.5, -7)</td>
+                                        <td>(-1.9, -1.9)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="figure-caption"><strong>Figure 1:</strong> A normal-form game as a payoff matrix. Rows are Player 1's actions, columns are Player 2's actions. Each cell shows \((u_1, u_2)\). This example is a variant of the Prisoner's Dilemma.</p>
+                        </div>
+                        
+                        <h4>Extensive-form games and information</h4>
+                        
+                        <p>Normal form is compact for simultaneous-move games, but many strategic interactions are sequential and information-dependent. An extensive-form game specifies a game tree with histories \(h\), a player function \(P(h)\in N\cup\{\text{chance}\}\) indicating who moves after history \(h\), feasible actions \(A(h)\), a transition function that maps \((h,a)\) to the next history, and terminal utilities \(u_i(z)\) at leaves \(z\). Crucially, it also specifies <em>information sets</em>: a partition of each player's decision nodes into sets of histories the player cannot distinguish given their observations. A behavioral strategy for player \(i\) assigns to each information set \(I\) a distribution over actions, \(\pi_i(\cdot \mid I)\in \Delta(A(I))\). When every information set is a singleton, the game has <em>perfect information</em>, otherwise it has <em>imperfect information</em>. One often also distinguishes <em>complete information</em> (payoffs and types are common knowledge) from <em>incomplete information</em> (players have private types), which leads naturally to a Bayesian style of thinking in games.</p>
+                        
+                        <!-- Figure 2: Extensive-form game tree -->
+                        <div class="figure-container">
+                            <svg class="diagram-svg" viewBox="0 0 400 280" width="400" height="280">
+                                <!-- Player 1 node -->
+                                <circle cx="200" cy="40" r="20" fill="white" stroke="#00274c" stroke-width="2"/>
+                                <text x="200" y="45" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600">1</text>
+                                <text x="200" y="20" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#6b7280" font-style="italic">Player 1 moves</text>
+                                
+                                <!-- Edges from P1 -->
+                                <line x1="185" y1="55" x2="100" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <line x1="215" y1="55" x2="300" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <text x="130" y="70" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151">L</text>
+                                <text x="260" y="70" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151">R</text>
+                                
+                                <!-- Player 2 nodes -->
+                                <circle cx="100" cy="120" r="20" fill="white" stroke="#00274c" stroke-width="2"/>
+                                <text x="100" y="125" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600">2</text>
+                                
+                                <circle cx="300" cy="120" r="20" fill="white" stroke="#00274c" stroke-width="2"/>
+                                <text x="300" y="125" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600">2</text>
+                                
+                                <!-- Information set (dashed line) -->
+                                <line x1="120" y1="120" x2="280" y2="120" stroke="#9ca3af" stroke-width="2" stroke-dasharray="5,5"/>
+                                <text x="200" y="110" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#9ca3af">info set</text>
+                                
+                                <!-- Terminal nodes from left P2 -->
+                                <line x1="85" y1="135" x2="50" y2="190" stroke="#374151" stroke-width="2"/>
+                                <line x1="115" y1="135" x2="150" y2="190" stroke="#374151" stroke-width="2"/>
+                                <text x="55" y="170" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">ℓ</text>
+                                <text x="138" y="170" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">r</text>
+                                
+                                <rect x="25" y="200" width="50" height="28" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="1.5"/>
+                                <text x="50" y="218" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11">(3,1)</text>
+                                
+                                <rect x="125" y="200" width="50" height="28" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="1.5"/>
+                                <text x="150" y="218" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11">(0,0)</text>
+                                
+                                <!-- Terminal nodes from right P2 -->
+                                <line x1="285" y1="135" x2="250" y2="190" stroke="#374151" stroke-width="2"/>
+                                <line x1="315" y1="135" x2="350" y2="190" stroke="#374151" stroke-width="2"/>
+                                <text x="255" y="170" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">ℓ</text>
+                                <text x="340" y="170" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">r</text>
+                                
+                                <rect x="225" y="200" width="50" height="28" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="1.5"/>
+                                <text x="250" y="218" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11">(1,2)</text>
+                                
+                                <rect x="325" y="200" width="50" height="28" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="1.5"/>
+                                <text x="350" y="218" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11">(2,1)</text>
+                                
+                                <!-- Arrowhead marker -->
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                        <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+                                    </marker>
+                                </defs>
+                            </svg>
+                            <p class="figure-caption"><strong>Figure 2:</strong> An extensive-form game tree. Player 1 chooses L or R; then Player 2 moves without observing Player 1's choice. The dashed line connecting Player 2's nodes indicates an <em>information set</em>: Player 2 cannot distinguish which node they are at.</p>
+                        </div>
+                        
+                        <h4>Minimax and the special structure of zero-sum games</h4>
+                        
+                        <p>Two-player zero-sum games have a very clean theory because the players' objectives are exactly opposed. For a payoff matrix \(M\in \mathbb{R}^{m\times k}\) giving player 1's payoff \(u_1(i,j)=M_{ij}\) (and player 2's payoff \(-M_{ij}\)), mixed strategies \(x\in \Delta([m])\), \(y\in \Delta([k])\) yield value \(x^\top M y\). The central result is the minimax theorem:</p>
+                        
+                        \[\max_{x\in \Delta([m])}\min_{y\in \Delta([k])} x^\top M y = \min_{y\in \Delta([k])}\max_{x\in \Delta([m])} x^\top M y = v,\]
+                        
+                        <p>and moreover there exist optimal mixed strategies \(x^\star,y^\star\) achieving the value \(v\). Conceptually, this says that in zero-sum games there is not much ambiguity about what "rational play" should mean: optimal play can be defined as a saddle point, and equilibrium is literally solving a convex-concave optimization problem. This theorem, and the broader mathematical framing of games as objects worth analyzing in their own right, is closely associated with von Neumann's foundational work and his collaboration with Morgenstern. Good examples of two-player zero-sum games with perfect information are chess and Go.</p>
+                        
+                        <h4>Nash equilibrium in general-sum games</h4>
+                        
+                        <p>Zero-sum games are unusually clean because the players' objectives are perfectly opposed, so there is a single "value" the game is trying to realize. General-sum games are subtler: there is no single scalar objective to optimize, and stability has to be defined in terms of deviations. A mixed-strategy profile \(\sigma^\star\) is a <em>Nash equilibrium</em> if for every player \(i\),</p>
+                        
+                        \[u_i(\sigma_i^\star,\sigma_{-i}^\star) \ge u_i(\sigma_i,\sigma_{-i}^\star) \quad \forall\,\sigma_i\in \Delta(A_i).\]
+                        
+                        <p>Equivalently, \(\sigma_i^\star\) is a best response to \(\sigma_{-i}^\star\) for each \(i\). Nash's theorem shows that every finite normal-form game admits at least one mixed-strategy Nash equilibrium. For extensive-form games, one typically refines Nash to handle dynamic consistency and off-path behavior (subgame-perfect equilibrium or sequential equilibrium), but the key idea is the same: a stable profile is one where no player can profitably deviate given what the others are doing.</p>
+                        
+                        <blockquote>
+                            At this point, it is worth emphasizing one theme that will come back later. Game theory does not just give you a single prediction rule. It gives you a family of solution concepts, and which one you pick is part of your modeling assumptions.
+                        </blockquote>
+                        
+                        <p>Across these settings, game theory supplies a menu of equilibrium and solution concepts, only a few noted here. Some other well-known ones are Quantal Response Equilibrium, correlated equilibrium, coarse correlated equilibrium, Berge equilibrium, and many more. Each comes with different assumptions and different computational tradeoffs.</p>
+                        
+                        <p>There are also other formalisms and granularities. Some are defined by structure (potential games), some by symmetry (symmetric versus asymmetric games), and some by how you access the game (explicit payoff tables versus simulator-based games where you cannot write down utilities in closed form). We also have not even touched on computational and algorithmic game theory, mechanism design (often dubbed reverse game theory), information design, fair division, social choice, voting, and connections to control theory and reinforcement learning. I am not going to try to cover everything here. The goal is just to set up the pieces we need so that when we bring in causality, the mapping is clear.</p>
+                        
+                        <h3>2.2 Causality</h3>
+                        
+                        <p>Causality is the mathematical and philosophical study of <em>what changes when we change something</em>. Standard probabilistic modeling is usually about associations such as \(P(Y \mid X=x)\). Causal modeling aims to formalize <em>interventions</em> (forcing \(X\) to take a value) and <em>counterfactuals</em> (what would have happened under a different intervention, for the same underlying unit or world). This has led to formal frameworks, most notably Pearl's, that specify (i) how the world generates data, (ii) what it means to intervene, and (iii) when such questions are identifiable from observations.</p>
+                        
+                        <blockquote>
+                            If game theory is about stability under deviations, causality is about stability under surgery. The whole point of this post is that, in traditional structural strategic settings, how do those two kinds of counterfactuals collide in interesting ways.
+                        </blockquote>
+                        
+                        <h4>Structural causal models (SCMs)</h4>
+                        
+                        <p>One clean formalism is a <em>structural causal model</em>. An SCM is a tuple</p>
+                        
+                        \[\mathcal{M} = (U, V, F, P(U)),\]
+                        
+                        <p>where \(U\) are exogenous (background) variables, \(V=\{V_1,\dots,V_d\}\) are endogenous variables, \(F=\{f_1,\dots,f_d\}\) are structural assignments</p>
+                        
+                        \[V_j = f_j(\mathrm{Pa}_j, U_j), \qquad j=1,\dots,d,\]
+                        
+                        <p>and \(P(U)\) is a distribution over exogenous variables. The directed graph induced by these assignments (edges \(\mathrm{Pa}_j \to V_j\)) is the <em>causal graph</em>. The key point is that \(F\) encodes how each variable is generated from its direct causes and noise, not just how variables are correlated.</p>
+                        
+                        <!-- Figure 3: SCM diagram -->
+                        <div class="figure-container">
+                            <svg class="diagram-svg" viewBox="0 0 360 200" width="360" height="200">
+                                <!-- Exogenous nodes (dashed) -->
+                                <circle cx="60" cy="40" r="22" fill="#f9fafb" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3"/>
+                                <text x="60" y="45" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151">U<tspan font-size="9" dy="3">X</tspan></text>
+                                
+                                <circle cx="180" cy="30" r="22" fill="#f9fafb" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3"/>
+                                <text x="180" y="35" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151">U<tspan font-size="9" dy="3">XY</tspan></text>
+                                
+                                <circle cx="300" cy="40" r="22" fill="#f9fafb" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3"/>
+                                <text x="300" y="45" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151">U<tspan font-size="9" dy="3">Y</tspan></text>
+                                
+                                <!-- Endogenous nodes (solid) -->
+                                <circle cx="100" cy="140" r="24" fill="white" stroke="#00274c" stroke-width="2.5"/>
+                                <text x="100" y="146" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="600" fill="#00274c">X</text>
+                                
+                                <circle cx="260" cy="140" r="24" fill="white" stroke="#00274c" stroke-width="2.5"/>
+                                <text x="260" y="146" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="600" fill="#00274c">Y</text>
+                                
+                                <!-- Edges -->
+                                <defs>
+                                    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                        <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+                                    </marker>
+                                </defs>
+                                
+                                <line x1="60" y1="62" x2="85" y2="118" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                                <line x1="300" y1="62" x2="275" y2="118" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                                <line x1="165" y1="50" x2="115" y2="120" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                                <line x1="195" y1="50" x2="245" y2="120" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                                <line x1="124" y1="140" x2="233" y2="140" stroke="#00274c" stroke-width="2" marker-end="url(#arrow2)"/>
+                            </svg>
+                            <p class="figure-caption"><strong>Figure 3:</strong> A structural causal model (SCM). Endogenous variables \(X\) and \(Y\) (solid nodes) are generated by structural assignments. Exogenous noise variables (dashed nodes) represent unobserved factors: \(U_X\) and \(U_Y\) are independent noise, while \(U_{XY}\) is a common cause (confounder).</p>
+                        </div>
+                        
+                        <h4>Interventions and the do-operator</h4>
+                        
+                        <p>An intervention \(\do(X=x)\) means we <em>force</em> \(X\) to be \(x\) and break its usual generating mechanism. In an SCM, \(\do(X=x)\) is implemented by replacing the structural equation for \(X\) with the assignment \(X:=x\). The resulting interventional distribution is written \(P(Y \mid \do(X=x))\). This is not generally equal to \(P(Y \mid X=x)\), because the latter conditions on an event that may be confounded by common causes of \(X\) and \(Y\).</p>
+                        
+                        <!-- Figure 4: do-operator -->
+                        <div class="figure-container">
+                            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+                                <div style="text-align: center;">
+                                    <svg viewBox="0 0 160 140" width="160" height="140">
+                                        <circle cx="80" cy="30" r="20" fill="#f9fafb" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3"/>
+                                        <text x="80" y="35" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151">U<tspan font-size="9" dy="2">X</tspan></text>
+                                        
+                                        <circle cx="50" cy="100" r="20" fill="white" stroke="#00274c" stroke-width="2"/>
+                                        <text x="50" y="105" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600" fill="#00274c">X</text>
+                                        
+                                        <circle cx="120" cy="100" r="20" fill="white" stroke="#00274c" stroke-width="2"/>
+                                        <text x="120" y="105" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600" fill="#00274c">Y</text>
+                                        
+                                        <line x1="80" y1="50" x2="60" y2="82" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow2)"/>
+                                        <line x1="70" y1="100" x2="98" y2="100" stroke="#00274c" stroke-width="2" marker-end="url(#arrow2)"/>
+                                    </svg>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">(a) Observational regime</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <svg viewBox="0 0 160 140" width="160" height="140">
+                                        <circle cx="80" cy="30" r="20" fill="#f9fafb" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3" opacity="0.3"/>
+                                        <text x="80" y="35" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" fill="#374151" opacity="0.3">U<tspan font-size="9" dy="2">X</tspan></text>
+                                        
+                                        <circle cx="50" cy="100" r="20" fill="white" stroke="#00274c" stroke-width="4"/>
+                                        <text x="50" y="105" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="700" fill="#00274c">x</text>
+                                        
+                                        <circle cx="120" cy="100" r="20" fill="white" stroke="#00274c" stroke-width="2"/>
+                                        <text x="120" y="105" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="14" font-weight="600" fill="#00274c">Y</text>
+                                        
+                                        <line x1="70" y1="100" x2="98" y2="100" stroke="#00274c" stroke-width="2" marker-end="url(#arrow2)"/>
+                                    </svg>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">(b) After intervention \(\do(X=x)\)</p>
+                                </div>
+                            </div>
+                            <p class="figure-caption"><strong>Figure 4:</strong> The do-operator in action. (a) Under observation, \(X\) is generated by its structural equation including noise \(U_X\). (b) Under \(\do(X=x)\), the mechanism is replaced: \(X\) is fixed to value \(x\), severing the edge from \(U_X\).</p>
+                        </div>
+                        
+                        <p>A central object is the <em>average causal effect</em> (ACE), for instance,</p>
+                        
+                        \[\mathrm{ACE} = \mathbb{E}[Y \mid \do(X=1)] - \mathbb{E}[Y \mid \do(X=0)],\]
+                        
+                        <p>which extends naturally to continuous or multivalued treatments.</p>
+                        
+                        <p>From this foundation, we can define Bayesian networks (BNs) and causal Bayesian networks (CBNs). A BN is a DAG \(G=(V,E)\) together with conditional probability distributions (CPDs) \(\{P(V_j \mid \mathrm{Pa}_j)\}_{j=1}^d\) such that the joint factorizes as</p>
+                        
+                        \[P(v_1,\dots,v_d) = \prod_{j=1}^d P\bigl(v_j \mid \mathrm{Pa}_j\bigr).\]
+                        
+                        <p>This is purely probabilistic: it encodes conditional independences and provides an efficient representation for inference and likelihood-based modeling. A CBN is a BN whose edges are additionally interpreted as <em>direct causal relationships</em>. The difference is semantic but important. In a CBN the graph is not just a compact factorization, it is also a claim about how the data is generated. This added semantics is exactly what allows interventions to be defined.</p>
+                        
+                        <!-- Figure 5: BN DAG -->
+                        <div class="figure-container">
+                            <svg class="diagram-svg" viewBox="0 0 260 200" width="260" height="200">
+                                <circle cx="130" cy="30" r="22" fill="white" stroke="#00274c" stroke-width="2.5"/>
+                                <text x="130" y="36" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="600" fill="#00274c">A</text>
+                                
+                                <circle cx="60" cy="100" r="22" fill="white" stroke="#00274c" stroke-width="2.5"/>
+                                <text x="60" y="106" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="600" fill="#00274c">B</text>
+                                
+                                <circle cx="200" cy="100" r="22" fill="white" stroke="#00274c" stroke-width="2.5"/>
+                                <text x="200" y="106" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="600" fill="#00274c">C</text>
+                                
+                                <circle cx="130" cy="170" r="22" fill="white" stroke="#00274c" stroke-width="2.5"/>
+                                <text x="130" y="176" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="600" fill="#00274c">D</text>
+                                
+                                <line x1="115" y1="48" x2="75" y2="82" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="145" y1="48" x2="185" y2="82" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="75" y1="118" x2="115" y2="152" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="185" y1="118" x2="145" y2="152" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                            </svg>
+                            <p class="figure-caption"><strong>Figure 5:</strong> A Bayesian network DAG encoding conditional independence structure. The joint distribution factorizes as \(P(A,B,C,D)=P(A)\,P(B\mid A)\,P(C\mid A)\,P(D\mid B,C)\).</p>
+                        </div>
+                        
+                        <h4>From SCMs to BNs</h4>
+                        
+                        <p>If an SCM \(\mathcal{M}=(U,V,F,P(U))\) is acyclic, then it induces a BN over \(V\) by pushing forward \(P(U)\) through the structural equations. Under standard conditions (for example independent exogenous noises), the induced distribution over \(V\) factorizes according to the causal graph:</p>
+                        
+                        \[P(v) = \prod_{j=1}^d P\bigl(v_j \mid \mathrm{Pa}_j\bigr).\]
+                        
+                        <p>So: SCM implies a causal DAG, which implies a BN factorization for \(P(V)\). But the converse is not true without extra assumptions: many different SCMs can induce the same observational BN and CBN. The usefulness of causal graphs is that interventions on them have clear and useful meanings.</p>
+                        
+                        <h2>3. Work to Bridge Ideas from the Two</h2>
+                        
+                        <h3>3.1 Bridging the two: MAIDs and causal games</h3>
+                        
+                        <p>One classic structural connection between causality and game theory is the <em>Multiagent Influence Diagram</em> (MAID), introduced by Koller and Milch [2]. The framework presented in this section draws heavily on the work of Hammond et al. [1], which extends MAIDs to full <em>causal games</em>.</p>
+                        
+                        <div class="definition-box">
+                            <p>A MAID is a structure \(\mathcal{M} = (\mathcal{G}, \boldsymbol{\theta})\) where \(\mathcal{G} = (N, \mathbf{V}, E)\) specifies a set of agents \(N=\{1,\dots,n\}\) and a DAG \((\mathbf{V}, E)\). The node set \(\mathbf{V}\) is partitioned into <strong>chance variables</strong> \(\mathbf{X}\), <strong>decision variables</strong> \(\mathbf{D}=\bigcup_{i\in N}\mathbf{D}^i\), and <strong>utility variables</strong> \(\mathbf{U}=\bigcup_{i\in N}\mathbf{U}^i\).</p>
+                        </div>
+                        
+                        <p>Parameters \(\boldsymbol{\theta}=\{\theta_V\}_{V\in\mathbf{V}\setminus \mathbf{D}}\) define conditional probability tables for each non-decision variable, so that (once decisions are specified) the model induces a Bayesian network over the chance and utility nodes.</p>
+                        
+                        <blockquote>
+                            Here is the intuition that I like to keep in mind. A MAID is a probabilistic graphical model, but it is wired up so that some nodes are controlled by strategic agents. So it is already halfway between a causal graph and a game tree.
+                        </blockquote>
+                        
+                        <!-- Figure 6: MAID -->
+                        <div class="figure-container">
+                            <svg class="diagram-svg" viewBox="0 0 340 240" width="340" height="240">
+                                <!-- Nature (chance) node - oval -->
+                                <ellipse cx="170" cy="40" rx="50" ry="22" fill="white" stroke="#374151" stroke-width="2"/>
+                                <text x="170" y="36" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">Nature</text>
+                                <text x="170" y="50" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" font-weight="500">(X)</text>
+                                
+                                <!-- Player 1 decision node - rectangle -->
+                                <rect x="30" cy="120" width="80" height="36" y="102" rx="2" fill="#dbeafe" stroke="#374151" stroke-width="2"/>
+                                <text x="70" y="116" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">Player 1</text>
+                                <text x="70" y="130" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" font-weight="500">(D₁)</text>
+                                
+                                <!-- Player 2 decision node - rectangle -->
+                                <rect x="230" y="102" width="80" height="36" rx="2" fill="#dbeafe" stroke="#374151" stroke-width="2"/>
+                                <text x="270" y="116" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">Player 2</text>
+                                <text x="270" y="130" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" font-weight="500">(D₂)</text>
+                                
+                                <!-- Utility node - diamond -->
+                                <polygon points="170,170 200,200 170,230 140,200" fill="#fee2e2" stroke="#374151" stroke-width="2"/>
+                                <text x="170" y="196" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" fill="#374151">Utility</text>
+                                <text x="170" y="210" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" font-weight="500">(U)</text>
+                                
+                                <!-- Edges -->
+                                <line x1="135" y1="55" x2="85" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="205" y1="55" x2="255" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="95" y1="138" x2="145" y2="175" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="245" y1="138" x2="195" y2="175" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                                <line x1="170" y1="62" x2="170" y2="168" stroke="#374151" stroke-width="2" marker-end="url(#arrow2)"/>
+                            </svg>
+                            <p class="figure-caption"><strong>Figure 6:</strong> A MAID following standard conventions: <span style="background: #dbeafe; padding: 2px 6px; border-radius: 2px;">Decisions (Rectangles)</span>, <span style="background: #fee2e2; padding: 2px 6px; border-radius: 2px; transform: rotate(45deg);">Utilities (Diamonds)</span>, and <span style="border: 1px solid #374151; padding: 2px 6px; border-radius: 10px;">Chance (Ovals)</span>.</p>
+                        </div>
+                        
+                        <p>A key point is that in a MAID, <em>strategies</em> become <em>policies</em>: each agent \(i\) chooses a collection of decision rules, one per decision node \(D\in \mathbf{D}^i\), mapping the node's informational parents (denoted \(\mathrm{Pa}_D\)) into an action distribution. Writing the full policy profile as \(\pi=(\pi^1,\dots,\pi^n)\), the MAID together with \(\pi\) induces a well-defined joint distribution \(P^\pi\) over all variables, hence well-defined expected utilities.</p>
+                        
+                        <p>From here we can define a Nash equilibrium directly at the level of policies. A policy profile \(\pi^\star\) is a <em>Nash equilibrium</em> in a MAID \(\mathcal{M}\) if for every agent \(i\in N\),</p>
+                        
+                        \[\pi^{i,\star} \in \argmax_{\hat{\pi}^i \in \Pi^i} \sum_{U\in\mathbf{U}^i} \mathbb{E}_{P^{(\hat{\pi}^i,\pi^{-i,\star})}}[U],\]
+                        
+                        <p>where \(\Pi^i\) is the set of valid policies for agent \(i\), and \(P^{(\hat{\pi}^i,\pi^{-i,\star})}\) is the distribution induced when agent \(i\) deviates to \(\hat{\pi}^i\) while others play \(\pi^{-i,\star}\). This mirrors the usual deviation-based definition in normal-form and extensive-form games, but now the probability model is built into the graph.</p>
+                        
+                        <h4>Mechanised MAIDs and making causality explicit</h4>
+                        
+                        <p>A MAID already looks like a causal graph, but there is a subtlety: the distribution \(P^\pi\) depends on the agents' policies, yet policies are not random variables. They are chosen strategically. A <em>mechanised MAID</em> makes this dependence explicit by augmenting the graph with additional structure: for each decision node \(D\), we introduce a <em>policy node</em> \(\Pi_D\) that parameterizes the decision rule, along with edges from information parents to the policy node and from the policy node to \(D\). This lets us distinguish two types of interventions:</p>
+                        
+                        <ol>
+                            <li><strong>Interventions on the environment</strong>: modifying chance nodes or the information structure (which edges exist);</li>
+                            <li><strong>Interventions on policies</strong>: directly setting \(\do(\Pi_D = \pi_D)\) to fix a decision rule.</li>
+                        </ol>
+                        
+                        <blockquote>
+                            This is the key move that makes causal language feel natural. Once policies are explicit objects in the model, you can talk about intervening on them, not just conditioning on them.
+                        </blockquote>
+                        
+                        <h3>3.2 Making use of these structures: what does it mean to ask a causal question in a game?</h3>
+                        
+                        <p>Once you see the MAID as a probability model <em>conditional on a policy profile</em>, you can start asking causal questions. But you quickly run into a very game-theoretic issue: the model does not pick a single distribution for you. In a standard causal model, there is one data generating process. In a game, there is often a <em>set</em> of plausible data generating processes, because there may be multiple "rational" policy profiles (multiple equilibria, or multiple outcomes under whatever refinement you believe in).</p>
+                        
+                        <h4>Queries are often set-valued</h4>
+                        
+                        <p>Let \(\mathsf{Sol}(\mathcal{M})\) denote the set of "rational" policy profiles for the MAID under a chosen solution concept. Then a prediction query like</p>
+                        
+                        \[P(Y \mid X=x)\]
+                        
+                        <p>is not a single number anymore, but a family of answers indexed by \(\pi\in\mathsf{Sol}(\mathcal{M})\). In other words, the natural output is the <em>set</em></p>
+                        
+                        \[\Big\{ P^{\pi}(Y \mid X=x) : \pi\in\mathsf{Sol}(\mathcal{M}) \Big\},\]
+                        
+                        <p>where \(P^{\pi}(\cdot)\) is the distribution induced by the MAID when agents play policy profile \(\pi\). This sounds annoying at first, but it is actually honest. Without an equilibrium selection story, the game itself does not identify a unique forecast.</p>
+                        
+                        <blockquote>
+                            If you want a single prediction, you can always add an equilibrium selection rule. But it is helpful to notice when that selection rule is doing work, because it changes what you mean by "the" outcome of the game.
+                        </blockquote>
+                        
+                        <h4>Pre-policy vs. post-policy interventions</h4>
+                        
+                        <p>In Pearl-style causality, an intervention \(\do(Z=z)\) replaces the mechanism generating \(Z\). In a strategic setting, we also have to say whether agents get to respond to the intervention, or whether their decision rules are treated as fixed.</p>
+                        
+                        <p>Hammond et al. [1] formalize this distinction in a way that I find really useful. There are two different meanings that both deserve to be called "causal":</p>
+                        
+                        <ul>
+                            <li><strong>Post-policy intervention (hold decision rules fixed).</strong> Fix a policy profile \(\pi\) (for example a particular equilibrium, or any other policy profile of interest), and then apply an intervention to the non-decision part of the model while <em>keeping the policies fixed</em>. This produces an interventional distribution of the form
+                            \[P^{\pi}(Y \mid \do(Z=z)).\]
+                            Intuitively, this isolates a direct causal effect within a fixed behavior model: what changes if we surgically modify part of the environment or information structure, without allowing strategic re-optimization.</li>
+                            
+                            <li><strong>Pre-policy intervention (allow strategic response).</strong> Apply the intervention first, producing a modified MAID \(\mathcal{M}_{\do(Z=z)}\), and then consider rational play in the intervened game. The natural output is again set-valued:
+                            \[\Big\{ P^{\pi'}(Y) : \pi' \in \mathsf{Sol}(\mathcal{M}_{\do(Z=z)}) \Big\}.\]
+                            Intuitively, this captures strategic adaptation: you changed the rules of the world, so the set of rational policies may change.</li>
+                        </ul>
+                        
+                        <blockquote>
+                            The important point is that these answer different questions. Post-policy isolates a direct causal effect holding behavior fixed, while pre-policy includes the downstream effect of equilibrium adjustment. If you are not explicit about which one you mean, you can end up talking past people, because the two effects can differ a lot.
+                        </blockquote>
+                        
+                        <h4>Counterfactuals require more structure</h4>
+                        
+                        <p>There is a second subtlety: for <em>counterfactuals</em> you typically want a structural model, not just a Bayesian network. A counterfactual wants to reuse the same background noise \(U\) across the factual and counterfactual worlds (same underlying world, different intervention). So to talk about "what would have happened in the same world if we had changed \(Z\)" you want structural equations for the chance variables. When you add that structure to the game, you can ask counterfactual questions, again typically indexed by which rational outcome you assume.</p>
+                        
+                        <h4>Relation to extensive-form games</h4>
+                        
+                        <p>At this point it is natural to ask, why not just use extensive-form games (EFGs) and do everything there? The short answer is that MAIDs and EFGs are two views of the same underlying object. You can unroll a MAID into an extensive-form representation (often with blowup), and you can sometimes compress an extensive-form game into a MAID by exploiting conditional independence and repeated structure. The payoff is that MAIDs are closer in spirit to causal graphs, so causal questions about information flow and interventions are easier to express without drowning in the tree.</p>
+                        
+                        <h4>Other Perspectives</h4>
+                        
+                        <p>Another direction I like at this intersection flips the problem around. Instead of asking how to make games causal, it asks what happens to causal inference when agents are strategic. In many real settings, treatments are not purely exogenous assignments. There can be competition over who gets treated, incentives to manipulate assignment, and strategic responses to being experimented on. Once you take that seriously, equilibrium concepts start showing up even if your end goal is statistical estimation, because the data you observe may itself be a strategic outcome of an incentive system. This suggests a deep link between mechanism design, game theory and strategic interference in control trials: questions I will begin to explore in a later post.</p>
+                        
+                        <!-- References -->
+                        <div class="references">
+                            <h2>References</h2>
+                            <ol>
+                                <li>Lewis Hammond, James Fox, Tom Everitt, Ryan Carey, Alessandro Abate, and Michael Wooldridge. <em>Reasoning about causality in games.</em> Artificial Intelligence, 320:103919, 2023.</li>
+                                <li>Daphne Koller and Brian Milch. <em>Multi-agent influence diagrams for representing and solving games.</em> Games and Economic Behavior, 45(1):181-221, 2003.</li>
+                                <li>Judea Pearl. <em>Causality: Models, Reasoning, and Inference.</em> Cambridge University Press, 2nd edition, 2009.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="blog-tags-container">
+                            <span class="blog-tag tag-game-theory">Game Theory</span>
+                            <span class="blog-tag tag-causality">Causality</span>
+                            <span class="blog-tag tag-ai">Multi-Agent Systems</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Gabe Smithline</p>
+                    <p class="small">Last updated: December 2025</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="mailto:gsmithl@umich.edu" class="me-3" title="Email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="me-3" target="_blank" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/gsmithline" class="me-3" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&hl=en&authuser=1" target="_blank" title="Google Scholar">
+                        <i class="ai ai-google-scholar"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="../assets/js/languageManager.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
