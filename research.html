@@ -61,6 +61,58 @@
             color: white;
             text-decoration: none;
         }
+        .abstract-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.6rem 0.9rem;
+            margin-top: 0.75rem;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--umich-blue);
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            text-align: left;
+            gap: 0.75rem;
+        }
+        .abstract-toggle:hover,
+        .abstract-toggle:focus-visible {
+            background-color: #eef1f5;
+            border-color: var(--umich-blue);
+            outline: none;
+        }
+        .abstract-toggle .abstract-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .abstract-toggle .chevron {
+            transition: transform 0.25s ease;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        .abstract-toggle[aria-expanded="true"] .chevron {
+            transform: rotate(180deg);
+        }
+        .abstract-content {
+            padding: 0.85rem 0.25rem 0.25rem;
+            margin-bottom: 0;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 576px) {
+            .abstract-toggle {
+                font-size: 0.85rem;
+                padding: 0.55rem 0.75rem;
+            }
+            .abstract-content {
+                font-size: 0.92rem;
+            }
+        }
     </style>
 </head>
 
@@ -196,55 +248,102 @@
                             <h3 class="research-title">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</h3>
                             <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank">Chris Mascioli</a></p>
                             <p class="text-muted">University of Michigan | Under review</p>
-                            <p class="justify">Architectural choices inside the Transformer feedforward network (FFN) block do not merely affect the block itself; they reshape the computations learned by the rest of the model. We study this effect in one-layer Transformers trained on digit addition with carry, modular arithmetic, and histogram counting. Comparing dense FFNs, gated linear units (GLUs), mixture-of-experts (MoE), and MoE-GLUs, we find that sparse MoE routing can shift computation from FFN to attention, with the strongest ablation-visible effect on carry-based addition. We decompose this redistribution into reduced per-token FFN capacity and sparse partitioning across experts. Critically, frozen random routing nearly matches learned routing, suggesting that redistribution is driven largely by architectural sparsity rather than router-learned specialization. As a secondary finding, GLU-style multiplicative gating rotates task-relevant Fourier structure out of the per-neuron basis and into distributed subspaces, making neuron-level interpretability less informative while preserving structured computation. We validate these conclusions with random-routing, narrow-FFN, and top-2 MoE controls, plus parameter-matching, activation-function, and width-scaling analyses. Together, these results show that local FFN design choices can have nonlocal consequences for Transformer computation.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-sparsity" aria-expanded="false" aria-controls="abstract-sparsity">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-sparsity">
+                                <p class="abstract-content justify">Architectural choices inside the Transformer feedforward network (FFN) block do not merely affect the block itself; they reshape the computations learned by the rest of the model. We study this effect in one-layer Transformers trained on digit addition with carry, modular arithmetic, and histogram counting. Comparing dense FFNs, gated linear units (GLUs), mixture-of-experts (MoE), and MoE-GLUs, we find that sparse MoE routing can shift computation from FFN to attention, with the strongest ablation-visible effect on carry-based addition. We decompose this redistribution into reduced per-token FFN capacity and sparse partitioning across experts. Critically, frozen random routing nearly matches learned routing, suggesting that redistribution is driven largely by architectural sparsity rather than router-learned specialization. As a secondary finding, GLU-style multiplicative gating rotates task-relevant Fourier structure out of the per-neuron basis and into distributed subspaces, making neuron-level interpretability less informative while preserving structured computation. We validate these conclusions with random-routing, narrow-FFN, and top-2 MoE controls, plus parameter-matching, activation-function, and width-scaling analyses. Together, these results show that local FFN design choices can have nonlocal consequences for Transformer computation.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title">SGRD: Solver-Guided Rationale Distillation for Finetuning Strategic Reasoning</h3>
                             <p class="justify">Author(s): <a href="https://chrismascioli.com/" target="_blank">Chris Mascioli</a>, Gabriel Smithline, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael P. Wellman</a></p>
                             <p class="text-muted">University of Michigan | Under review</p>
-                            <p class="justify">Large language models (LLMs) for decision making offer advantages in natural language interaction and potential for providing interpretable justifications for their actions. For complex strategic environments, strong play often requires expensive reasoning-time computation, and even then generally cannot match the performance of specialized game-solving algorithms. We introduce Solver-Guided Rationale Distillation (SGRD), a pipeline for distilling solver-aligned actions combined with LLM-generated decision rationales into a cost-effective language-model policy. SGRD samples game states, labels each state with the action generated by a specialized solver, and asks an LLM teacher to justify that action based on the acting player's information. It then fine-tunes a student model to emit a concise rationale followed by a valid action. We instantiate the method in an alternating-offer bargaining game with private valuations and outside offers, using a PPO self-play policy as the solver and gpt-oss-20b as the student. In matched cross-play against the PPO solver over 1000 evaluation seeds, the distilled student achieves mean payoff of 351.2 value-units, representing a +51.8 surplus over its outside option and a 39.2% deal rate, while emitting only ∼188 completion tokens per turn. This is roughly 16× fewer than the same base model run at medium reasoning effort, which it nonetheless improves by +10.9 value units (p &lt; 0.001, paired permutation test). These results suggest that solver-guided rationale supervision can transfer strategic behavior from non-linguistic game-playing agents into language-model policies without requiring expensive teacher-model inference at deployment.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-sgrd" aria-expanded="false" aria-controls="abstract-sgrd">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-sgrd">
+                                <p class="abstract-content justify">Large language models (LLMs) for decision making offer advantages in natural language interaction and potential for providing interpretable justifications for their actions. For complex strategic environments, strong play often requires expensive reasoning-time computation, and even then generally cannot match the performance of specialized game-solving algorithms. We introduce Solver-Guided Rationale Distillation (SGRD), a pipeline for distilling solver-aligned actions combined with LLM-generated decision rationales into a cost-effective language-model policy. SGRD samples game states, labels each state with the action generated by a specialized solver, and asks an LLM teacher to justify that action based on the acting player's information. It then fine-tunes a student model to emit a concise rationale followed by a valid action. We instantiate the method in an alternating-offer bargaining game with private valuations and outside offers, using a PPO self-play policy as the solver and gpt-oss-20b as the student. In matched cross-play against the PPO solver over 1000 evaluation seeds, the distilled student achieves mean payoff of 351.2 value-units, representing a +51.8 surplus over its outside option and a 39.2% deal rate, while emitting only ∼188 completion tokens per turn. This is roughly 16× fewer than the same base model run at medium reasoning effort, which it nonetheless improves by +10.9 value units (p &lt; 0.001, paired permutation test). These results suggest that solver-guided rationale supervision can transfer strategic behavior from non-linguistic game-playing agents into language-model policies without requiring expensive teacher-model inference at deployment.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title">Measuring Competition and Cooperation in LLM Bargaining: An Empirical Meta-Game Analysis</h3>
                             <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank">Mithun Chakraborty</a>, and <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael Wellman</a></p>
                             <p class="text-muted">University of Michigan | 1st place and winner of the AgentX–AgentBeats Competition, hosted by UC Berkeley RDI |  <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank">National Bureau of Economic Research Conference on Econometrics and Mathematical Economics 2026</a> | Early draft presented at <a href="https://mas-2025.github.io/MAS-2025/" target="_blank">ICML 2025 MAS Workshop</a> | <a href="assets/documents/publications/LLMs_negotiating_fair_allocation (14).pdf" target="_blank">[PDF]</a></p>
-                            <p class="justify">We conduct an empirical game-theoretic analysis of large language models (LLMs) negotiating to divide subjectively valued items, as a case study of assessing advanced AI in mixed-motive settings. Bargaining agents built on proprietary LLMs represent meta-strategies, mapping prompts describing the game to negotiation policies. A graduated series of prompting levels steers agents away from blatant negotiation errors. Across a variety of bargaining scenarios, we estimate empirical meta-games over meta-strategies that include LLM agents, three heuristic strategies representing extreme negotiation attitudes, two reinforcement-learning-derived policies, and an agent based on common bargaining heuristics. We evaluate agents at meta-game equilibria in terms of individual effectiveness, social welfare, and fairness, using bootstrap methods to quantify uncertainty. Our analysis reveals a positive association between individual effectiveness and social metrics across models, with performance varying systematically across providers, architectures, and prompting levels. Behavioral analyses further illuminate why certain models excel or fail in specific bargaining regimes and uncover distinct qualitative patterns across OpenAI, Anthropic, and Google models.</p>
-                            
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-bargaining" aria-expanded="false" aria-controls="abstract-bargaining">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-bargaining">
+                                <p class="abstract-content justify">We conduct an empirical game-theoretic analysis of large language models (LLMs) negotiating to divide subjectively valued items, as a case study of assessing advanced AI in mixed-motive settings. Bargaining agents built on proprietary LLMs represent meta-strategies, mapping prompts describing the game to negotiation policies. A graduated series of prompting levels steers agents away from blatant negotiation errors. Across a variety of bargaining scenarios, we estimate empirical meta-games over meta-strategies that include LLM agents, three heuristic strategies representing extreme negotiation attitudes, two reinforcement-learning-derived policies, and an agent based on common bargaining heuristics. We evaluate agents at meta-game equilibria in terms of individual effectiveness, social welfare, and fairness, using bootstrap methods to quantify uncertainty. Our analysis reveals a positive association between individual effectiveness and social metrics across models, with performance varying systematically across providers, architectures, and prompting levels. Behavioral analyses further illuminate why certain models excel or fail in specific bargaining regimes and uncover distinct qualitative patterns across OpenAI, Anthropic, and Google models.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title">Matching at the Midpoint: A Strategic Agent Based Analysis</h3>
                             <p class="justify">Author(s): Gabriel Smithline, <a href="https://anrigu.github.io/" target="_blank">Anri Gu</a>, and <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael Wellman</a></p>
                             <p class="text-muted">University of Michigan | 2025 | ACM International Conference on AI in Finance 2025 (ICAIF) | Selected for Oral Presentation (top 15%) | <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank">[PDF]</a></p>
-                            <p class="justify">We study midpoint matching through Nasdaq's Midpoint Extended-Life Order (M-ELO) mechanism, which offers non-displayed midpoint execution subject to a mandatory holding period to balance liquidity and adverse-selection concerns. We conduct an empirical game-theoretic analysis using an agent-based simulation in PyMarketSim that models both M-ELO and a traditional lit order book, simulating traders' venue choices across a range of holding periods and enumerating pure and mixed Nash equilibria for each setting. We analyze welfare outcomes, strategic stability via deviation graphs, and basins of attraction across these equilibria. Our findings reveal that shorter holding periods can insufficiently deter higher frequency small lot trading, while excessively long delays erode the midpoint premium for large traders. This highlights the fundamental trade-off in designing holding periods that effectively screen predatory trading without undermining value for intended users.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-midpoint" aria-expanded="false" aria-controls="abstract-midpoint">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-midpoint">
+                                <p class="abstract-content justify">We study midpoint matching through Nasdaq's Midpoint Extended-Life Order (M-ELO) mechanism, which offers non-displayed midpoint execution subject to a mandatory holding period to balance liquidity and adverse-selection concerns. We conduct an empirical game-theoretic analysis using an agent-based simulation in PyMarketSim that models both M-ELO and a traditional lit order book, simulating traders' venue choices across a range of holding periods and enumerating pure and mixed Nash equilibria for each setting. We analyze welfare outcomes, strategic stability via deviation graphs, and basins of attraction across these equilibria. Our findings reveal that shorter holding periods can insufficiently deter higher frequency small lot trading, while excessively long delays erode the midpoint premium for large traders. This highlights the fundamental trade-off in designing holding periods that effectively screen predatory trading without undermining value for intended users.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
                             <p class="justify">Author(s): Gabriel Smithline and <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&hl=en" target="_blank">Scott Nivison</a></p>
                             <p class="text-muted">AFRL Research Project | 2024 | Accepted to ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025 and selected for oral presentation | <a href="assets/documents/merged_hot_starts.pdf" target="_blank">[PDF]</a></p>
-                            <p class="justify">Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-hot-starts" aria-expanded="false" aria-controls="abstract-hot-starts">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-hot-starts">
+                                <p class="abstract-content justify">Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
                             <p class="text-muted">Preprint <a href="https://arxiv.org/abs/2412.06936" class="link-dark" target="_blank">arXiv:2412.06936</a></p>
-                            <p class="justify">Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-cooperative" aria-expanded="false" aria-controls="abstract-cooperative">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-cooperative">
+                                <p class="abstract-content justify">Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
+                            </div>
                         </div>
 
 
                         <div class="research-item">
                             <h3 class="research-title">Quantal Response-Based Defense in One vs. Many Stackelberg Security Games</h3>
                             <p class="text-muted">Tufts University | 2023-2024 | <a href="assets/documents/potential_game_project.pdf" target="_blank">[PDF]</a></p>
-                            <p class="justify">During the 2023-2024 academic year, I researched Stackelberg Security Games and Deception. My work focused on finding reductions from Stackelberg Security Games to social planner problems in macroeconomic models.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-stackelberg" aria-expanded="false" aria-controls="abstract-stackelberg">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-stackelberg">
+                                <p class="abstract-content justify">During the 2023-2024 academic year, I researched Stackelberg Security Games and Deception. My work focused on finding reductions from Stackelberg Security Games to social planner problems in macroeconomic models.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title">Understanding Eviction Rates Induced by COVID: A Statistical, Mechanism Design, and Game Theoretic Perspective</h3>
                             <p class="text-muted">Lafayette College | 2021</p>
-                            <p class="justify">During the 2021 academic year, I researched the impacts of COVID-19 on the rental market in Pennsylvania and Easton. I approached this through statistics, econometrics, mechanism design, and game theory. I worked with the city of Easton to help implement these Mechanism Design solutions.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-eviction" aria-expanded="false" aria-controls="abstract-eviction">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-eviction">
+                                <p class="abstract-content justify">During the 2021 academic year, I researched the impacts of COVID-19 on the rental market in Pennsylvania and Easton. I approached this through statistics, econometrics, mechanism design, and game theory. I worked with the city of Easton to help implement these Mechanism Design solutions.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
