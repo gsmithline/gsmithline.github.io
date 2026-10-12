@@ -243,6 +243,18 @@
                         <h2 class="section-heading mb-4">Research</h2>
 
                         <h3 class="mb-3" style="color: var(--umich-blue);">Papers</h3>
+                        <div class="research-item">
+                            <h3 class="research-title"><a href="https://openreview.net/pdf?id=wsWVou87xy" target="_blank">Repeated retraining can weaken LLM distortion of collective opinions</a></h3>
+                            <p class="justify">Author(s): <a target="_blank">Gabriel Smithline</a>, <a href="https://celestine.ai/" target="_blank">Celestine Mendler-Dünner</a></p>
+                            <p class="text-muted">University of Michigan - Ann Arbor; ELLIS Institute Tübingen | NeurIPS Workshop: Foundations of LLM Post-Training in Changing Environments | <a href="https://openreview.net/pdf?id=wsWVou87xy" target="_blank">[PDF]</a></p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-retraining" aria-expanded="false" aria-controls="abstract-retraining">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-retraining">
+                                <p class="abstract-content justify">By selecting, filtering, and framing information, AI models can influence individual opinions. Through peer interaction, this influence can propagate across populations, shifting collective opinions towards model-specific outcomes. In this work, we investigate how repeated retraining of AI models affects this process. We conduct a large-scale simulation study deploying a dozen open weight models within an established model of human–AI co-evolution, and measure model influence as the deviation of collective opinions at equilibrium from those that would emerge in the absence of LLM influence. Fine-tuning on population responses can reduce this deviation, whereas with in-context learning this effect can vary. The strength of regularization towards the pretraining policy controls the magnitude of this effect: weaker regularization leads to equilibrium opinions closer to the baseline without LLM influence. Overall, our results suggest that by adapting models to the population--rather than populations adapting unilaterally to the model---a model's influence on equilibrium outcomes can be reduced.</p>
+                            </div>
+                        </div>
 
                         <div class="research-item">
                             <h3 class="research-title"><a href="http://arxiv.org/abs/2605.09403" target="_blank">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
