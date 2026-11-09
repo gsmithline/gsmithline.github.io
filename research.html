@@ -16,51 +16,32 @@
 
     <!-- Title + Icon -->
     <title>Research | Gabe Smithline</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="canonical" href="https://gsmithline.github.io/research.html">
+
+    <!-- Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gabe Smithline">
+    <meta property="og:title" content="Research | Gabe Smithline">
+    <meta property="og:description" content="Selected research and projects by Gabe Smithline: multi-agent systems, game theory, and the strategic evaluation of language models.">
+    <meta property="og:url" content="https://gsmithline.github.io/research.html">
+    <meta property="og:image" content="https://gsmithline.github.io/assets/documents/imgs/me.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Research | Gabe Smithline">
+    <meta name="twitter:description" content="Selected research and projects by Gabe Smithline: multi-agent systems, game theory, and the strategic evaluation of language models.">
+    <meta name="twitter:image" content="https://gsmithline.github.io/assets/documents/imgs/me.jpg">
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <style>
-        /* Research-specific styles */
-        .research-meta {
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-        .research-meta .venue {
-            color: var(--umich-blue);
-            font-weight: 500;
-        }
-        .research-meta .year {
-            color: var(--text-muted);
-        }
-        .research-abstract {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.65;
-        }
-        .research-links {
-            margin-top: 0.75rem;
-        }
-        .research-links a {
-            display: inline-block;
-            padding: 4px 12px;
-            background-color: var(--bg-light);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-right: 8px;
-            transition: all 0.2s ease;
-        }
-        .research-links a:hover {
-            background-color: var(--umich-blue);
-            color: white;
-            text-decoration: none;
-        }
+        /* Research entry styles */
         .abstract-toggle {
             display: flex;
             align-items: center;
@@ -135,9 +116,6 @@
             .catch(error => console.error('Error loading the configuration:', error));
     </script>
 
-    <!-- Bottom rounded buttons -->
-    <div class="options-button" id="options-toggler"><i class="fa-light fa-arrows-repeat"></i></div>
-    <div class="options-button" id="lan"><img class="lang-flag" src="https://flagcdn.com/w20/us.png" alt="Flag indicating the English language is selected"></div>
 
     <!-- Navbar -->
     <nav id="top-nav" class="navbar navbar-expand-md navbar-light bg-light flex-md-nowrap flex-wrap sticky-top">
@@ -182,7 +160,7 @@
                 <h4 class="mt-4 mb-3">Contact</h4>
                 <div class="row mb-2">
                     <div class="col-1">
-                        <i class="fal fa-map-marker-alt" aria-hidden="true"></i>
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                     </div>
                     <div class="col-10">
                         <span data-en="Ann Arbor, Michigan">Ann Arbor, Michigan</span><br />
@@ -206,7 +184,7 @@
                         <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                     </div>
                     <div class="col-10">
-                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="link-dark" target="_blank">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="link-dark" target="_blank" rel="noopener">LinkedIn</a>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -214,7 +192,7 @@
                         <i class="fab fa-github" aria-hidden="true"></i>
                     </div>
                     <div class="col-10">
-                        <a href="https://github.com/gsmithline" class="link-dark" target="_blank">GitHub</a>
+                        <a href="https://github.com/gsmithline" class="link-dark" target="_blank" rel="noopener">GitHub</a>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -222,7 +200,7 @@
                         <i class="ai ai-google-scholar" aria-hidden="true"></i>
                     </div>
                     <div class="col-10">
-                        <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&hl=en&authuser=1" class="link-dark" target="_blank">Google Scholar</a>
+                        <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&amp;hl=en&amp;authuser=1" class="link-dark" target="_blank" rel="noopener">Google Scholar</a>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -230,7 +208,7 @@
                         <i class="ai ai-orcid" aria-hidden="true"></i>
                     </div>
                     <div class="col-10">
-                        <a href="https://orcid.org/0009-0001-7091-5367" class="link-dark" target="_blank">ORCID</a>
+                        <a href="https://orcid.org/0009-0001-7091-5367" class="link-dark" target="_blank" rel="noopener">ORCID</a>
                     </div>
                 </div>
             </aside>
@@ -244,20 +222,20 @@
 
                         <div class="research-item">
                             <h3 class="research-title">Negotiating Agents: Strategic and Behavioral Evaluation</h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank">Chris Mascioli</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael P. Wellman</a></p>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
                             <p class="text-muted">In progress | OpenAI-funded (U&#8209;M / OpenAI partnership) | 2026</p>
                         </div>
 
                         <div class="research-item">
                             <h3 class="research-title">Beyond Equilibrium Support: Counterfactual Influence and Best-Response Structure in Empirical Games</h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael P. Wellman</a></p>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
                             <p class="text-muted">Under review | 2026</p>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title"><a href="https://openreview.net/pdf?id=wsWVou87xy" target="_blank">Repeated Retraining Can Weaken LLM Distortion of Collective Opinions</a></h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://celestine.ai/" target="_blank">Celestine Mendler-D&uuml;nner</a></p>
-                            <p class="text-muted">NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments | Full paper in preparation | 2026 | <a href="https://openreview.net/pdf?id=wsWVou87xy" target="_blank">[Working Paper]</a></p>
+                            <h3 class="research-title"><a href="https://openreview.net/pdf?id=wsWVou87xy" target="_blank" rel="noopener">Repeated Retraining Can Weaken LLM Distortion of Collective Opinions</a></h3>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://celestine.ai/" target="_blank" rel="noopener">Celestine Mendler-D&uuml;nner</a></p>
+                            <p class="text-muted">NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments | Full paper in preparation | 2026 | <a href="https://openreview.net/pdf?id=wsWVou87xy" target="_blank" rel="noopener">[Working Paper]</a></p>
                             <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-retraining" aria-expanded="false" aria-controls="abstract-retraining">
                                 <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
                                 <i class="fa-solid fa-chevron-down chevron"></i>
@@ -268,9 +246,9 @@
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title"><a href="http://arxiv.org/abs/2605.09403" target="_blank">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank">Chris Mascioli</a></p>
-                            <p class="text-muted">ICML 2026 Mechanistic Interpretability Workshop | 2026 | <a href="http://arxiv.org/abs/2605.09403" target="_blank">[arXiv:2605.09403]</a></p>
+                            <h3 class="research-title"><a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a></p>
+                            <p class="text-muted">ICML 2026 Mechanistic Interpretability Workshop | 2026 | <a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">[arXiv:2605.09403]</a></p>
                             <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-sparsity" aria-expanded="false" aria-controls="abstract-sparsity">
                                 <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
                                 <i class="fa-solid fa-chevron-down chevron"></i>
@@ -282,8 +260,8 @@
 
                         <div class="research-item">
                             <h3 class="research-title">Measuring Competition and Cooperation in LLM Bargaining: An Empirical Meta-Game Analysis</h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank">Mithun Chakraborty</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael P. Wellman</a></p>
-                            <p class="text-muted"><a href="https://mas-2025.github.io/MAS-2025/" target="_blank">ICML 2025 MAS Workshop</a> | <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank">NBER Conference on Econometrics and Mathematical Economics 2026</a> | 1st place, AgentX&ndash;AgentBeats Competition (UC Berkeley RDI) | 2025&ndash;2026 | <a href="assets/documents/publications/LLMs_negotiating_fair_allocation (14).pdf" target="_blank">[Working Paper]</a></p>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank" rel="noopener">Mithun Chakraborty</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                            <p class="text-muted"><a href="https://mas-2025.github.io/MAS-2025/" target="_blank" rel="noopener">ICML 2025 MAS Workshop</a> | <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank" rel="noopener">NBER Conference on Econometrics and Mathematical Economics 2026</a> | 1st place, AgentX&ndash;AgentBeats Competition (UC Berkeley RDI) | 2025&ndash;2026 | <a href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">[Working Paper]</a></p>
                             <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-bargaining" aria-expanded="false" aria-controls="abstract-bargaining">
                                 <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
                                 <i class="fa-solid fa-chevron-down chevron"></i>
@@ -295,8 +273,8 @@
 
                         <div class="research-item">
                             <h3 class="research-title">Market Selection with Midpoint Matching: A Strategic Agent-Based Analysis</h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://anrigu.github.io/" target="_blank">Anri Gu</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank">Michael P. Wellman</a></p>
-                            <p class="text-muted">ACM International Conference on AI in Finance 2025 (ICAIF) | Oral presentation (top 15%) | 2025 | <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank">[PDF]</a></p>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://anrigu.github.io/" target="_blank" rel="noopener">Anri Gu</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                            <p class="text-muted">ACM International Conference on AI in Finance 2025 (ICAIF) | Oral presentation (top 15%) | 2025 | <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">[PDF]</a></p>
                             <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-midpoint" aria-expanded="false" aria-controls="abstract-midpoint">
                                 <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
                                 <i class="fa-solid fa-chevron-down chevron"></i>
@@ -308,8 +286,8 @@
 
                         <div class="research-item">
                             <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
-                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&amp;hl=en" target="_blank">Scott Nivison</a></p>
-                            <p class="text-muted">ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025 | Oral presentation | AFRL research project | 2024 | <a href="assets/documents/merged_hot_starts.pdf" target="_blank">[PDF]</a></p>
+                            <p class="justify">Author(s): Gabriel Smithline, <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scott Nivison</a></p>
+                            <p class="text-muted">ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025 | Oral presentation | AFRL research project | 2024 | <a href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">[PDF]</a></p>
                             <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-hot-starts" aria-expanded="false" aria-controls="abstract-hot-starts">
                                 <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
                                 <i class="fa-solid fa-chevron-down chevron"></i>
@@ -320,9 +298,9 @@
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
+                            <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
                             <p class="justify">Author(s): Aiden Lewington et al. (51 authors, including Gabriel Smithline)</p>
-                            <p class="text-muted">Preprint | 2024 | <a href="https://arxiv.org/abs/2412.06936" target="_blank">[arXiv:2412.06936]</a></p>
+                            <p class="text-muted">Preprint | 2024 | <a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">[arXiv:2412.06936]</a></p>
                             <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-cooperative" aria-expanded="false" aria-controls="abstract-cooperative">
                                 <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
                                 <i class="fa-solid fa-chevron-down chevron"></i>
@@ -344,19 +322,19 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <p>&copy; 2026 Gabe Smithline</p>
-                    <p class="small">Last updated: May 2026</p>
+                    <p class="small">Last updated: November 2026</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="mailto:gsmithl@umich.edu" class="me-3" title="Email">
                         <i class="fa-regular fa-envelope"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="me-3" target="_blank" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="me-3" target="_blank" rel="noopener" title="LinkedIn">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/gsmithline" class="me-3" target="_blank" title="GitHub">
+                    <a href="https://github.com/gsmithline" class="me-3" target="_blank" rel="noopener" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&hl=en&authuser=1" target="_blank" title="Google Scholar">
+                    <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&amp;hl=en&amp;authuser=1" target="_blank" rel="noopener" title="Google Scholar">
                         <i class="ai ai-google-scholar"></i>
                     </a>
                 </div>
@@ -367,8 +345,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="assets/js/languageManager.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html> 
