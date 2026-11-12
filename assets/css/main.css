@@ -239,16 +239,14 @@ a:hover {
    RESEARCH ITEMS
    ============================================ */
 
-/* Publication list: plain rows separated by a hairline, like the news list. */
+/* Publication list: small figure on the left, text on the right,
+   rows separated by a hairline like the news list. */
 .research-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
     padding: var(--spacing-lg) 0;
     border-bottom: 1px solid var(--border-color);
-}
-
-/* Keep the line length readable on wide screens. */
-.research-item > p,
-.research-item > h3 {
-    max-width: 68ch;
 }
 
 .research-item:first-child {
@@ -258,6 +256,32 @@ a:hover {
 .research-item:last-child {
     border-bottom: none;
     padding-bottom: 0;
+}
+
+.research-figure {
+    flex: 0 0 170px;
+    width: 170px;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.research-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a.research-figure:hover img,
+a.research-figure:focus-visible img {
+    opacity: 0.85;
+}
+
+/* Text column; max-width keeps the line length readable, min-width:0
+   stops long titles from stretching the flex row. */
+.research-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 72ch;
 }
 
 .research-title {
@@ -296,23 +320,19 @@ a:hover {
     color: var(--text-secondary);
 }
 
-/* Headline figure from the paper, under its entry. */
-.research-figure {
-    display: block;
-    width: 320px;
-    max-width: 100%;
-    margin-top: 0.9rem;
-}
+@media (max-width: 767.98px) {
+    .research-item {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
 
-.research-figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
+    .research-figure {
+        flex: 0 0 auto;
+    }
 
-a.research-figure:hover img,
-a.research-figure:focus-visible img {
-    opacity: 0.85;
+    .research-figure-empty {
+        display: none;
+    }
 }
 
 /* ============================================

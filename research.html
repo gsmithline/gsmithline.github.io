@@ -39,7 +39,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
-    <link rel="stylesheet" href="assets/css/main.css?v=20261112">
+    <link rel="stylesheet" href="assets/css/main.css?v=20261112b">
 </head>
 
 <body>
@@ -91,155 +91,106 @@
     </nav>
     <div class="container" id="main-content">
         <div class="row content" id="section-content">
-            <!-- Profile and Contact Info Sidebar -->
-            <aside id="leftPanel" class="col-12 col-md-3 language mb-4 mb-md-0">
-                <div class="row mb-3">
-                    <div class="col">
-                        <img src="assets/documents/imgs/me.jpg" class="rounded me-auto d-block img-fluid profilepicture" alt="Gabe Smithline profile picture">
-                    </div>
-                </div>
-                <h3 class="mb-2">Gabe Smithline</h3>
-                <p class="mb-4 t-secondary" data-en="Ph.D. Candidate in Electrical Engineering and Computer Science at the University of Michigan">Ph.D. Candidate in Electrical Engineering and Computer Science at the University of Michigan</p>
-            
-                <!-- Contact Information -->
-                <h4 class="mt-4 mb-3">Contact</h4>
-                <div class="row mb-2">
-                    <div class="col-1">
-                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-10">
-                        <span data-en="Ann Arbor, Michigan">Ann Arbor, Michigan</span><br />
-                        <span data-en="United States">United States</span>
-                    </div>
-                </div>
-
-                <div class="row mb-2">
-                    <div class="col-1">
-                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-10">
-                        <a href="mailto:gsmithl@umich.edu" class="link-dark">gsmithl@umich.edu</a>
-                    </div>
-                </div>
-                
-                <!-- Social/Academic Links -->
-                <h4 class="mt-4 mb-3">Links</h4>
-                <div class="row mb-2">
-                    <div class="col-1">
-                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-10">
-                        <a href="https://www.linkedin.com/in/gabriel-smithline-018305154/" class="link-dark" target="_blank" rel="noopener">LinkedIn</a>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-1">
-                        <i class="fab fa-github" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-10">
-                        <a href="https://github.com/gsmithline" class="link-dark" target="_blank" rel="noopener">GitHub</a>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-1">
-                        <i class="ai ai-google-scholar" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-10">
-                        <a href="https://scholar.google.com/citations?user=P29CJ2YAAAAJ&amp;hl=en&amp;authuser=1" class="link-dark" target="_blank" rel="noopener">Google Scholar</a>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-1">
-                        <i class="ai ai-orcid" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-10">
-                        <a href="https://orcid.org/0009-0001-7091-5367" class="link-dark" target="_blank" rel="noopener">ORCID</a>
-                    </div>
-                </div>
-            </aside>
 
             <!-- Main Content Area -->
-            <div class="col-md-8 offset-md-1">
+            <div class="col-12">
                 <!-- Research Section -->
                 <section id="researchContent" class="mb-5">
                     <div class="container language">
                         <h2 class="section-heading mb-4">Selected Research and Projects</h2>
 
                         <div class="research-item">
-                            <h3 class="research-title">Negotiating Agents: Strategic and Behavioral Evaluation</h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                            <p class="research-venue"><em>In progress</em> &middot; OpenAI-funded (U&#8209;M / OpenAI partnership) &middot; 2026</p>
-                            <p class="research-summary">Evaluating LLM negotiation agents on both strategic performance and the behavior they exhibit while bargaining.</p>
-                        </div>
-
-                        <div class="research-item">
-                            <h3 class="research-title">Beyond Equilibrium Support: Counterfactual Influence and Best-Response Structure in Empirical Games</h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                            <p class="research-venue"><em>Under review</em> &middot; 2026</p>
-                            <p class="research-summary">How much do conclusions from empirical game analysis depend on which strategies happen to be in the set? Measured through counterfactual influence and best-response closure.</p>
-                            <div class="research-figure">
-                                <img src="assets/img/figures/equilibrium-support.png" alt="Figure 4a from the paper: maximum Nash support size plotted against maximum CURB closure size across 23 empirical games." width="326" height="340" loading="lazy">
+                            <div class="research-figure research-figure-empty" aria-hidden="true"></div>
+                            <div class="research-body">
+                                <h3 class="research-title">Negotiating Agents: Strategic and Behavioral Evaluation</h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                                <p class="research-venue"><em>In progress</em> &middot; OpenAI-funded (U&#8209;M / OpenAI partnership) &middot; 2026</p>
+                                <p class="research-summary">Evaluating LLM negotiation agents on both strategic performance and the behavior they exhibit while bargaining.</p>
                             </div>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title"><a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">How Regularization During LLM Post-Training Can Shape Collective Opinion</a></h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://celestine.ai/" target="_blank" rel="noopener">Celestine Mendler-D&uuml;nner</a></p>
-                            <p class="research-venue"><em>NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments</em> &middot; Full paper in preparation &middot; 2026 &nbsp;/&nbsp; <a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">Working Paper</a></p>
-                            <p class="research-summary">The regularization strength chosen during post-training can decide where collective opinions settle when models and people repeatedly train on each other.</p>
+                            <div class="research-figure">
+                                <img src="assets/img/figures/equilibrium-support.png" alt="Figure 4a from the paper: maximum Nash support size plotted against maximum CURB closure size across 23 empirical games." width="326" height="340" loading="lazy">
+                            </div>
+                            <div class="research-body">
+                                <h3 class="research-title">Beyond Equilibrium Support: Counterfactual Influence and Best-Response Structure in Empirical Games</h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                                <p class="research-venue"><em>Under review</em> &middot; 2026</p>
+                                <p class="research-summary">How much do conclusions from empirical game analysis depend on which strategies happen to be in the set? Measured through counterfactual influence and best-response closure.</p>
+                            </div>
+                        </div>
+
+                        <div class="research-item">
                             <a class="research-figure" href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">
                                 <img src="assets/img/figures/regularization-post-training.png" alt="Figure from the paper: a closed feedback loop in which a platform&#39;s post-training shapes peer opinion dynamics, which in turn supply the next round of training data." width="490" height="340" loading="lazy">
                             </a>
+                            <div class="research-body">
+                                <h3 class="research-title"><a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">How Regularization During LLM Post-Training Can Shape Collective Opinion</a></h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://celestine.ai/" target="_blank" rel="noopener">Celestine Mendler-D&uuml;nner</a></p>
+                                <p class="research-venue"><em>NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments</em> &middot; Full paper in preparation &middot; 2026 &nbsp;/&nbsp; <a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">Working Paper</a></p>
+                                <p class="research-summary">The regularization strength chosen during post-training can decide where collective opinions settle when models and people repeatedly train on each other.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title"><a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a></p>
-                            <p class="research-venue"><em>ICML 2026 Mechanistic Interpretability Workshop</em> &middot; 2026 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">arXiv:2605.09403</a></p>
-                            <p class="research-summary">Sparse mixture-of-experts routing shifts computation out of the feedforward block and into attention &mdash; an effect driven by sparsity rather than learned routing.</p>
                             <a class="research-figure" href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">
                                 <img src="assets/img/figures/sparsity-ffn.png" alt="Figure from the paper: accuracy with the feedforward block ablated, across dense, GLU and mixture-of-experts variants." width="520" height="276" loading="lazy">
                             </a>
+                            <div class="research-body">
+                                <h3 class="research-title"><a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a></p>
+                                <p class="research-venue"><em>ICML 2026 Mechanistic Interpretability Workshop</em> &middot; 2026 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">arXiv:2605.09403</a></p>
+                                <p class="research-summary">Sparse mixture-of-experts routing shifts computation out of the feedforward block and into attention &mdash; an effect driven by sparsity rather than learned routing.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title">Measuring Competition and Cooperation in LLM Bargaining: An Empirical Meta-Game Analysis</h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank" rel="noopener">Mithun Chakraborty</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                            <p class="research-venue"><em><a href="https://mas-2025.github.io/MAS-2025/" target="_blank" rel="noopener">ICML 2025 MAS Workshop</a></em> &middot; <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank" rel="noopener">NBER Conference on Econometrics and Mathematical Economics 2026</a> &middot; 1st place, AgentX&ndash;AgentBeats Competition (UC Berkeley RDI) &middot; 2025&ndash;2026 &nbsp;/&nbsp; <a href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">Working Paper</a></p>
-                            <p class="research-summary">An empirical game-theoretic analysis of LLMs negotiating over indivisible items, relating individual effectiveness to welfare and fairness at meta-game equilibria.</p>
                             <a class="research-figure" href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">
                                 <img src="assets/img/figures/llm-bargaining.png" alt="Figure from the paper: empirical best-response graph over LLM agents and the baseline policies, including R-NaD and NFSP." width="302" height="340" loading="lazy">
                             </a>
+                            <div class="research-body">
+                                <h3 class="research-title">Measuring Competition and Cooperation in LLM Bargaining: An Empirical Meta-Game Analysis</h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank" rel="noopener">Mithun Chakraborty</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                                <p class="research-venue"><em><a href="https://mas-2025.github.io/MAS-2025/" target="_blank" rel="noopener">ICML 2025 MAS Workshop</a></em> &middot; <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank" rel="noopener">NBER Conference on Econometrics and Mathematical Economics 2026</a> &middot; 1st place, AgentX&ndash;AgentBeats Competition (UC Berkeley RDI) &middot; 2025&ndash;2026 &nbsp;/&nbsp; <a href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">Working Paper</a></p>
+                                <p class="research-summary">An empirical game-theoretic analysis of LLMs negotiating over indivisible items, relating individual effectiveness to welfare and fairness at meta-game equilibria.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title">Market Selection with Midpoint Matching: A Strategic Agent-Based Analysis</h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://anrigu.github.io/" target="_blank" rel="noopener">Anri Gu</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                            <p class="research-venue"><em>ACM International Conference on AI in Finance 2025 (ICAIF)</em> &middot; Oral presentation (top 15%) &middot; 2025 &nbsp;/&nbsp; <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">PDF</a></p>
-                            <p class="research-summary">An agent-based study of Nasdaq's M-ELO mechanism: short holding periods fail to deter fast small-lot trading, while long ones erode the midpoint premium for large traders.</p>
                             <a class="research-figure" href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">
                                 <img src="assets/img/figures/midpoint-matching.png" alt="Figure from the paper: a lit limit-order book and a dark pool connected through a midpoint pricing mechanism." width="520" height="308" loading="lazy">
                             </a>
+                            <div class="research-body">
+                                <h3 class="research-title">Market Selection with Midpoint Matching: A Strategic Agent-Based Analysis</h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://anrigu.github.io/" target="_blank" rel="noopener">Anri Gu</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                                <p class="research-venue"><em>ACM International Conference on AI in Finance 2025 (ICAIF)</em> &middot; Oral presentation (top 15%) &middot; 2025 &nbsp;/&nbsp; <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">PDF</a></p>
+                                <p class="research-summary">An agent-based study of Nasdaq's M-ELO mechanism: short holding periods fail to deter fast small-lot trading, while long ones erode the midpoint premium for large traders.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
-                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scott Nivison</a></p>
-                            <p class="research-venue"><em>ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025</em> &middot; Oral presentation &middot; AFRL research project &middot; 2024 &nbsp;/&nbsp; <a href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">PDF</a></p>
-                            <p class="research-summary">A graph convolutional network trained on Pareto-optimal configurations generates &ldquo;hot start&rdquo; pursuer positions that outperform random initialization.</p>
                             <a class="research-figure" href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">
                                 <img src="assets/img/figures/pursuit-evasion.png" alt="Figure 2 from the paper: five pursuers with their capture radii surrounding a single evader, illustrating cooperative containment." width="520" height="309" loading="lazy">
                             </a>
+                            <div class="research-body">
+                                <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
+                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scott Nivison</a></p>
+                                <p class="research-venue"><em>ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025</em> &middot; Oral presentation &middot; AFRL research project &middot; 2024 &nbsp;/&nbsp; <a href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">PDF</a></p>
+                                <p class="research-summary">A graph convolutional network trained on Pareto-optimal configurations generates &ldquo;hot start&rdquo; pursuer positions that outperform random initialization.</p>
+                            </div>
                         </div>
 
                         <div class="research-item">
-                            <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
-                            <p class="research-authors">Aiden Lewington et al. (51 authors, including <strong>Gabriel Smithline</strong>)</p>
-                            <p class="research-venue"><em>Preprint</em> &middot; 2024 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">arXiv:2412.06936</a></p>
-                            <p class="research-summary">A proposal for an open-source policymaking platform: a multimodal economics model, mechanisms for eliciting diverse perspectives, and a public web interface.</p>
                             <a class="research-figure" href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">
                                 <img src="assets/img/figures/cooperative-ai.png" alt="Figure from the paper: system overview linking the AI legislator, the economics transformer and the policy interface." width="520" height="152" loading="lazy">
                             </a>
+                            <div class="research-body">
+                                <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
+                                <p class="research-authors">Aiden Lewington et al. (51 authors, including <strong>Gabriel Smithline</strong>)</p>
+                                <p class="research-venue"><em>Preprint</em> &middot; 2024 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">arXiv:2412.06936</a></p>
+                                <p class="research-summary">A proposal for an open-source policymaking platform: a multimodal economics model, mechanisms for eliciting diverse perspectives, and a public web interface.</p>
+                            </div>
                         </div>
 
                     </div>
