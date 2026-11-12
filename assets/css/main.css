@@ -239,16 +239,23 @@ a:hover {
    RESEARCH ITEMS
    ============================================ */
 
+/* Publication rows: thumbnail left, text right, separated by a hairline
+   rule like the news list rather than boxed in cards. */
 .research-item {
     display: flex;
     align-items: flex-start;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-    padding: var(--spacing-lg);
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    transition: box-shadow var(--transition-normal);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.research-item:first-child {
+    padding-top: var(--spacing-sm);
+}
+
+.research-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 /* Text column; min-width:0 keeps long titles from stretching the flex row. */
@@ -257,59 +264,34 @@ a:hover {
     min-width: 0;
 }
 
-/* Headline figure from the paper, letterboxed so every tile is the same size. */
+/* Headline figure from the paper. */
 .research-figure {
-    flex: 0 0 230px;
+    flex: 0 0 160px;
     display: block;
-    padding: 0.5rem;
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.research-figure:hover,
-.research-figure:focus-visible {
-    border-color: var(--umich-blue);
-    box-shadow: var(--shadow-sm);
 }
 
 .research-figure img {
     display: block;
-    width: 100%;
-    height: 140px;
-    object-fit: contain;
+    width: 160px;
+    height: auto;
+    border-radius: 3px;
 }
 
-@media (max-width: 767.98px) {
-    .research-item {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    .research-figure {
-        flex: 0 0 auto;
-        width: 100%;
-    }
-
-    .research-figure img {
-        height: 160px;
-    }
+a.research-figure:hover img,
+a.research-figure:focus-visible img {
+    opacity: 0.85;
 }
 
-.research-item:hover {
-    box-shadow: var(--shadow-md);
-}
-
-.research-item:last-child {
-    margin-bottom: 0;
+/* Keeps the text column aligned for entries that have no figure yet. */
+.research-figure-empty {
+    align-self: stretch;
 }
 
 .research-title {
-    font-size: 1.15rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.2rem;
     line-height: 1.4;
 }
 
@@ -319,6 +301,41 @@ a:hover {
 
 .research-title a:hover {
     color: var(--link-color);
+}
+
+.research-authors {
+    margin-bottom: 0.1rem;
+    color: var(--text-primary);
+}
+
+.research-authors strong {
+    font-weight: 600;
+}
+
+.research-venue {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.research-summary {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 767.98px) {
+    .research-item {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .research-figure {
+        flex: 0 0 auto;
+    }
+
+    .research-figure-empty {
+        display: none;
+    }
 }
 
 /* ============================================
