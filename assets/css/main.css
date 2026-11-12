@@ -239,12 +239,8 @@ a:hover {
    RESEARCH ITEMS
    ============================================ */
 
-/* Publication rows: thumbnail left, text right, separated by a hairline
-   rule like the news list rather than boxed in cards. */
+/* Publication list: plain rows separated by a hairline, like the news list. */
 .research-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
     padding: var(--spacing-lg) 0;
     border-bottom: 1px solid var(--border-color);
 }
@@ -258,45 +254,16 @@ a:hover {
     padding-bottom: 0;
 }
 
-/* Text column; min-width:0 keeps long titles from stretching the flex row. */
-.research-body {
-    flex: 1 1 auto;
-    min-width: 0;
-}
-
-/* Headline figure from the paper. */
-.research-figure {
-    flex: 0 0 160px;
-    display: block;
-}
-
-.research-figure img {
-    display: block;
-    width: 160px;
-    height: auto;
-    border-radius: 3px;
-}
-
-a.research-figure:hover img,
-a.research-figure:focus-visible img {
-    opacity: 0.85;
-}
-
-/* Keeps the text column aligned for entries that have no figure yet. */
-.research-figure-empty {
-    align-self: stretch;
-}
-
 .research-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.2rem;
-    line-height: 1.4;
+    color: var(--umich-blue);
+    margin-bottom: 0.25rem;
+    line-height: 1.45;
 }
 
 .research-title a {
-    color: var(--text-primary);
+    color: var(--umich-blue);
 }
 
 .research-title a:hover {
@@ -304,7 +271,7 @@ a.research-figure:focus-visible img {
 }
 
 .research-authors {
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.15rem;
     color: var(--text-primary);
 }
 
@@ -313,7 +280,7 @@ a.research-figure:focus-visible img {
 }
 
 .research-venue {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
@@ -321,21 +288,6 @@ a.research-figure:focus-visible img {
 .research-summary {
     margin-bottom: 0;
     color: var(--text-secondary);
-}
-
-@media (max-width: 767.98px) {
-    .research-item {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .research-figure {
-        flex: 0 0 auto;
-    }
-
-    .research-figure-empty {
-        display: none;
-    }
 }
 
 /* ============================================

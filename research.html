@@ -215,138 +215,100 @@
                         <h2 class="section-heading mb-4">Selected Research and Projects</h2>
 
                         <div class="research-item">
-                            <div class="research-figure research-figure-empty" aria-hidden="true"></div>
-                            <div class="research-body">
-                                <h3 class="research-title">Negotiating Agents: Strategic and Behavioral Evaluation</h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                                <p class="research-venue"><em>In progress</em> &middot; OpenAI-funded (U&#8209;M / OpenAI partnership) &middot; 2026</p>
-                                <p class="research-summary">Evaluating LLM negotiation agents on both strategic performance and the behavior they exhibit while bargaining.</p>
+                            <h3 class="research-title">Negotiating Agents: Strategic and Behavioral Evaluation</h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                            <p class="research-venue"><em>In progress</em> &middot; OpenAI-funded (U&#8209;M / OpenAI partnership) &middot; 2026</p>
+                            <p class="research-summary">Evaluating LLM negotiation agents on both strategic performance and the behavior they exhibit while bargaining.</p>
+                        </div>
+
+                        <div class="research-item">
+                            <h3 class="research-title">Beyond Equilibrium Support: Counterfactual Influence and Best-Response Structure in Empirical Games</h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                            <p class="research-venue"><em>Under review</em> &middot; 2026</p>
+                            <p class="research-summary">How much do conclusions from empirical game analysis depend on which strategies happen to be in the set? Measured through counterfactual influence and best-response closure.</p>
+                        </div>
+
+                        <div class="research-item">
+                            <h3 class="research-title"><a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">How Regularization During LLM Post-Training Can Shape Collective Opinion</a></h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://celestine.ai/" target="_blank" rel="noopener">Celestine Mendler-D&uuml;nner</a></p>
+                            <p class="research-venue"><em>NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments</em> &middot; Full paper in preparation &middot; 2026 &nbsp;/&nbsp; <a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">Working Paper</a></p>
+                            <p class="research-summary">The regularization strength chosen during post-training can decide where collective opinions settle when models and people repeatedly train on each other.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-retraining" aria-expanded="false" aria-controls="abstract-retraining">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-retraining">
+                                <p class="abstract-content justify">LLMs can influence individual opinions. These opinions shape the interactions that make up the training data for future model updates. This recursive coupling between LLMs and individuals creates a dynamic where algorithmic design choices can determine social outcomes. In this work we perform a case study with more than a dozen open weight models to show how a nuisance regularization parameter can qualitatively alter emerging social dynamics. We repeatedly post-train an LLM on individuals' expressed opinions and apply an established model of opinion dynamics to simulate LLM influence. We investigate the equilibrium of these coupled dynamics and assess model influence as the deviation of collective opinions at equilibrium from those that would emerge in the absence of LLM influence. Our core finding is that the strength of regularization towards the pretraining policy can qualitatively alter equilibrium outcomes. While in the limit of a fixed model the influence is maximized, stronger adaptation leads to weaker drift, even preserving the mean in the limit of perfect prediction. Connecting these findings to the stable signal hypothesis, our results explain how algorithmic design choices can mediate social impact through differentiating performative effects.</p>
                             </div>
                         </div>
 
                         <div class="research-item">
-                            <div class="research-figure">
-                                <img src="assets/img/figures/equilibrium-support.png" alt="Figure from the paper: maximum Nash support size plotted against maximum CURB closure size across 23 empirical games." width="326" height="340" loading="lazy">
-                            </div>
-                            <div class="research-body">
-                                <h3 class="research-title">Beyond Equilibrium Support: Counterfactual Influence and Best-Response Structure in Empirical Games</h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                                <p class="research-venue"><em>Under review</em> &middot; 2026</p>
-                                <p class="research-summary">How much do conclusions from empirical game analysis depend on which strategies happen to be in the set? Measured through counterfactual influence and best-response closure.</p>
-                            </div>
-                        </div>
-
-                        <div class="research-item">
-                            <a class="research-figure" href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">
-                                <img src="assets/img/figures/regularization-post-training.png" alt="Figure from the paper: a closed feedback loop in which a platform&#39;s post-training shapes peer opinion dynamics, which in turn supply the next round of training data." width="490" height="340" loading="lazy">
-                            </a>
-                            <div class="research-body">
-                                <h3 class="research-title"><a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">How Regularization During LLM Post-Training Can Shape Collective Opinion</a></h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://celestine.ai/" target="_blank" rel="noopener">Celestine Mendler-D&uuml;nner</a></p>
-                                <p class="research-venue"><em>NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments</em> &middot; Full paper in preparation &middot; 2026 &nbsp;/&nbsp; <a href="https://drive.google.com/file/d/1yLxq60wpV3l03dAy4AXd_x4vKVVpD2Xr/view?usp=drive_link" target="_blank" rel="noopener">Working Paper</a></p>
-                                <p class="research-summary">The regularization strength chosen during post-training can decide where collective opinions settle when models and people repeatedly train on each other.</p>
-                                <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-retraining" aria-expanded="false" aria-controls="abstract-retraining">
-                                    <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
-                                    <i class="fa-solid fa-chevron-down chevron"></i>
-                                </button>
-                                <div class="collapse" id="abstract-retraining">
-                                    <p class="abstract-content justify">LLMs can influence individual opinions. These opinions shape the interactions that make up the training data for future model updates. This recursive coupling between LLMs and individuals creates a dynamic where algorithmic design choices can determine social outcomes. In this work we perform a case study with more than a dozen open weight models to show how a nuisance regularization parameter can qualitatively alter emerging social dynamics. We repeatedly post-train an LLM on individuals' expressed opinions and apply an established model of opinion dynamics to simulate LLM influence. We investigate the equilibrium of these coupled dynamics and assess model influence as the deviation of collective opinions at equilibrium from those that would emerge in the absence of LLM influence. Our core finding is that the strength of regularization towards the pretraining policy can qualitatively alter equilibrium outcomes. While in the limit of a fixed model the influence is maximized, stronger adaptation leads to weaker drift, even preserving the mean in the limit of perfect prediction. Connecting these findings to the stable signal hypothesis, our results explain how algorithmic design choices can mediate social impact through differentiating performative effects.</p>
-                                </div>
+                            <h3 class="research-title"><a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a></p>
+                            <p class="research-venue"><em>ICML 2026 Mechanistic Interpretability Workshop</em> &middot; 2026 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">arXiv:2605.09403</a></p>
+                            <p class="research-summary">Sparse mixture-of-experts routing shifts computation out of the feedforward block and into attention &mdash; an effect driven by sparsity rather than learned routing.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-sparsity" aria-expanded="false" aria-controls="abstract-sparsity">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-sparsity">
+                                <p class="abstract-content justify">Architectural choices inside the Transformer feedforward network (FFN) block do not merely affect the block itself; they reshape the computations learned by the rest of the model. We study this effect in one-layer Transformers trained on digit addition with carry, modular arithmetic, and histogram counting. Comparing dense FFNs, gated linear units (GLUs), mixture-of-experts (MoE), and MoE-GLUs, we find that sparse MoE routing can shift computation from FFN to attention, with the strongest ablation-visible effect on carry-based addition. We decompose this redistribution into reduced per-token FFN capacity and sparse partitioning across experts. Critically, frozen random routing nearly matches learned routing, suggesting that redistribution is driven largely by architectural sparsity rather than router-learned specialization. As a secondary finding, GLU-style multiplicative gating rotates task-relevant Fourier structure out of the per-neuron basis and into distributed subspaces, making neuron-level interpretability less informative while preserving structured computation. We validate these conclusions with random-routing, narrow-FFN, and top-2 MoE controls, plus parameter-matching, activation-function, and width-scaling analyses. Together, these results show that local FFN design choices can have nonlocal consequences for Transformer computation.</p>
                             </div>
                         </div>
 
                         <div class="research-item">
-                            <a class="research-figure" href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">
-                                <img src="assets/img/figures/sparsity-ffn.png" alt="Figure from the paper: accuracy with the feedforward block ablated, across dense, GLU and mixture-of-experts variants." width="520" height="276" loading="lazy">
-                            </a>
-                            <div class="research-body">
-                                <h3 class="research-title"><a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">Sparsity Moves Computation: How FFN Architecture Reshapes Attention in Small Transformers</a></h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a></p>
-                                <p class="research-venue"><em>ICML 2026 Mechanistic Interpretability Workshop</em> &middot; 2026 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2605.09403" target="_blank" rel="noopener">arXiv:2605.09403</a></p>
-                                <p class="research-summary">Sparse mixture-of-experts routing shifts computation out of the feedforward block and into attention &mdash; an effect driven by sparsity rather than learned routing.</p>
-                                <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-sparsity" aria-expanded="false" aria-controls="abstract-sparsity">
-                                    <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
-                                    <i class="fa-solid fa-chevron-down chevron"></i>
-                                </button>
-                                <div class="collapse" id="abstract-sparsity">
-                                    <p class="abstract-content justify">Architectural choices inside the Transformer feedforward network (FFN) block do not merely affect the block itself; they reshape the computations learned by the rest of the model. We study this effect in one-layer Transformers trained on digit addition with carry, modular arithmetic, and histogram counting. Comparing dense FFNs, gated linear units (GLUs), mixture-of-experts (MoE), and MoE-GLUs, we find that sparse MoE routing can shift computation from FFN to attention, with the strongest ablation-visible effect on carry-based addition. We decompose this redistribution into reduced per-token FFN capacity and sparse partitioning across experts. Critically, frozen random routing nearly matches learned routing, suggesting that redistribution is driven largely by architectural sparsity rather than router-learned specialization. As a secondary finding, GLU-style multiplicative gating rotates task-relevant Fourier structure out of the per-neuron basis and into distributed subspaces, making neuron-level interpretability less informative while preserving structured computation. We validate these conclusions with random-routing, narrow-FFN, and top-2 MoE controls, plus parameter-matching, activation-function, and width-scaling analyses. Together, these results show that local FFN design choices can have nonlocal consequences for Transformer computation.</p>
-                                </div>
+                            <h3 class="research-title">Measuring Competition and Cooperation in LLM Bargaining: An Empirical Meta-Game Analysis</h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank" rel="noopener">Mithun Chakraborty</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                            <p class="research-venue"><em><a href="https://mas-2025.github.io/MAS-2025/" target="_blank" rel="noopener">ICML 2025 MAS Workshop</a></em> &middot; <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank" rel="noopener">NBER Conference on Econometrics and Mathematical Economics 2026</a> &middot; 1st place, AgentX&ndash;AgentBeats Competition (UC Berkeley RDI) &middot; 2025&ndash;2026 &nbsp;/&nbsp; <a href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">Working Paper</a></p>
+                            <p class="research-summary">An empirical game-theoretic analysis of LLMs negotiating over indivisible items, relating individual effectiveness to welfare and fairness at meta-game equilibria.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-bargaining" aria-expanded="false" aria-controls="abstract-bargaining">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-bargaining">
+                                <p class="abstract-content justify">We conduct an empirical game-theoretic analysis of large language models (LLMs) negotiating to divide subjectively valued items, as a case study of assessing advanced AI in mixed-motive settings. Bargaining agents built on proprietary LLMs represent meta-strategies, mapping prompts describing the game to negotiation policies. A graduated series of prompting levels steers agents away from blatant negotiation errors. Across a variety of bargaining scenarios, we estimate empirical meta-games over meta-strategies that include LLM agents, three heuristic strategies representing extreme negotiation attitudes, two reinforcement-learning-derived policies, and an agent based on common bargaining heuristics. We evaluate agents at meta-game equilibria in terms of individual effectiveness, social welfare, and fairness, using bootstrap methods to quantify uncertainty. Our analysis reveals a positive association between individual effectiveness and social metrics across models, with performance varying systematically across providers, architectures, and prompting levels. Behavioral analyses further illuminate why certain models excel or fail in specific bargaining regimes and uncover distinct qualitative patterns across OpenAI, Anthropic, and Google models.</p>
                             </div>
                         </div>
 
                         <div class="research-item">
-                            <a class="research-figure" href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">
-                                <img src="assets/img/figures/llm-bargaining.png" alt="Figure from the paper: empirical best-response graph over the bargaining meta-strategies." width="334" height="340" loading="lazy">
-                            </a>
-                            <div class="research-body">
-                                <h3 class="research-title">Measuring Competition and Cooperation in LLM Bargaining: An Empirical Meta-Game Analysis</h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://chrismascioli.com/" target="_blank" rel="noopener">Chris Mascioli</a>, <a href="https://sites.google.com/umich.edu/mithunchakra/" target="_blank" rel="noopener">Mithun Chakraborty</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                                <p class="research-venue"><em><a href="https://mas-2025.github.io/MAS-2025/" target="_blank" rel="noopener">ICML 2025 MAS Workshop</a></em> &middot; <a href="https://www.nber.org/programs-projects/projects-and-centers/econometrics-and-mathematical-economics/ceme-mathematical-economics" target="_blank" rel="noopener">NBER Conference on Econometrics and Mathematical Economics 2026</a> &middot; 1st place, AgentX&ndash;AgentBeats Competition (UC Berkeley RDI) &middot; 2025&ndash;2026 &nbsp;/&nbsp; <a href="assets/documents/publications/llms-negotiating-fair-allocation.pdf" target="_blank" rel="noopener">Working Paper</a></p>
-                                <p class="research-summary">An empirical game-theoretic analysis of LLMs negotiating over indivisible items, relating individual effectiveness to welfare and fairness at meta-game equilibria.</p>
-                                <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-bargaining" aria-expanded="false" aria-controls="abstract-bargaining">
-                                    <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
-                                    <i class="fa-solid fa-chevron-down chevron"></i>
-                                </button>
-                                <div class="collapse" id="abstract-bargaining">
-                                    <p class="abstract-content justify">We conduct an empirical game-theoretic analysis of large language models (LLMs) negotiating to divide subjectively valued items, as a case study of assessing advanced AI in mixed-motive settings. Bargaining agents built on proprietary LLMs represent meta-strategies, mapping prompts describing the game to negotiation policies. A graduated series of prompting levels steers agents away from blatant negotiation errors. Across a variety of bargaining scenarios, we estimate empirical meta-games over meta-strategies that include LLM agents, three heuristic strategies representing extreme negotiation attitudes, two reinforcement-learning-derived policies, and an agent based on common bargaining heuristics. We evaluate agents at meta-game equilibria in terms of individual effectiveness, social welfare, and fairness, using bootstrap methods to quantify uncertainty. Our analysis reveals a positive association between individual effectiveness and social metrics across models, with performance varying systematically across providers, architectures, and prompting levels. Behavioral analyses further illuminate why certain models excel or fail in specific bargaining regimes and uncover distinct qualitative patterns across OpenAI, Anthropic, and Google models.</p>
-                                </div>
+                            <h3 class="research-title">Market Selection with Midpoint Matching: A Strategic Agent-Based Analysis</h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://anrigu.github.io/" target="_blank" rel="noopener">Anri Gu</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
+                            <p class="research-venue"><em>ACM International Conference on AI in Finance 2025 (ICAIF)</em> &middot; Oral presentation (top 15%) &middot; 2025 &nbsp;/&nbsp; <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">PDF</a></p>
+                            <p class="research-summary">An agent-based study of Nasdaq's M-ELO mechanism: short holding periods fail to deter fast small-lot trading, while long ones erode the midpoint premium for large traders.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-midpoint" aria-expanded="false" aria-controls="abstract-midpoint">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-midpoint">
+                                <p class="abstract-content justify">We study midpoint matching through Nasdaq's Midpoint Extended-Life Order (M-ELO) mechanism, which offers non-displayed midpoint execution subject to a mandatory holding period to balance liquidity and adverse-selection concerns. We conduct an empirical game-theoretic analysis using an agent-based simulation in PyMarketSim that models both M-ELO and a traditional lit order book, simulating traders' venue choices across a range of holding periods and enumerating pure and mixed Nash equilibria for each setting. We analyze welfare outcomes, strategic stability via deviation graphs, and basins of attraction across these equilibria. Our findings reveal that shorter holding periods can insufficiently deter higher frequency small lot trading, while excessively long delays erode the midpoint premium for large traders. This highlights the fundamental trade-off in designing holding periods that effectively screen predatory trading without undermining value for intended users.</p>
                             </div>
                         </div>
 
                         <div class="research-item">
-                            <a class="research-figure" href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">
-                                <img src="assets/img/figures/midpoint-matching.png" alt="Figure from the paper: a lit limit-order book and a dark pool connected through a midpoint pricing mechanism." width="520" height="308" loading="lazy">
-                            </a>
-                            <div class="research-body">
-                                <h3 class="research-title">Market Selection with Midpoint Matching: A Strategic Agent-Based Analysis</h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://anrigu.github.io/" target="_blank" rel="noopener">Anri Gu</a>, <a href="https://strategicreasoning.org/michael-p-wellman/" target="_blank" rel="noopener">Michael P. Wellman</a></p>
-                                <p class="research-venue"><em>ACM International Conference on AI in Finance 2025 (ICAIF)</em> &middot; Oral presentation (top 15%) &middot; 2025 &nbsp;/&nbsp; <a href="https://strategicreasoning.org/market-selection-with-midpoint-matching-a-strategic-agent-based-analysis/" target="_blank" rel="noopener">PDF</a></p>
-                                <p class="research-summary">An agent-based study of Nasdaq's M-ELO mechanism: short holding periods fail to deter fast small-lot trading, while long ones erode the midpoint premium for large traders.</p>
-                                <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-midpoint" aria-expanded="false" aria-controls="abstract-midpoint">
-                                    <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
-                                    <i class="fa-solid fa-chevron-down chevron"></i>
-                                </button>
-                                <div class="collapse" id="abstract-midpoint">
-                                    <p class="abstract-content justify">We study midpoint matching through Nasdaq's Midpoint Extended-Life Order (M-ELO) mechanism, which offers non-displayed midpoint execution subject to a mandatory holding period to balance liquidity and adverse-selection concerns. We conduct an empirical game-theoretic analysis using an agent-based simulation in PyMarketSim that models both M-ELO and a traditional lit order book, simulating traders' venue choices across a range of holding periods and enumerating pure and mixed Nash equilibria for each setting. We analyze welfare outcomes, strategic stability via deviation graphs, and basins of attraction across these equilibria. Our findings reveal that shorter holding periods can insufficiently deter higher frequency small lot trading, while excessively long delays erode the midpoint premium for large traders. This highlights the fundamental trade-off in designing holding periods that effectively screen predatory trading without undermining value for intended users.</p>
-                                </div>
+                            <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
+                            <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scott Nivison</a></p>
+                            <p class="research-venue"><em>ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025</em> &middot; Oral presentation &middot; AFRL research project &middot; 2024 &nbsp;/&nbsp; <a href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">PDF</a></p>
+                            <p class="research-summary">A graph convolutional network trained on Pareto-optimal configurations generates &ldquo;hot start&rdquo; pursuer positions that outperform random initialization.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-hot-starts" aria-expanded="false" aria-controls="abstract-hot-starts">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-hot-starts">
+                                <p class="abstract-content justify">Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
                             </div>
                         </div>
 
                         <div class="research-item">
-                            <a class="research-figure" href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">
-                                <img src="assets/img/figures/pursuit-evasion.png" alt="Figure from the paper: the pipeline that builds a graph feature space, trains a graph convolutional network and generates hot-start pursuer configurations." width="520" height="314" loading="lazy">
-                            </a>
-                            <div class="research-body">
-                                <h3 class="research-title">Fast and the Furious: Hot Starts in Pursuit-Evasion Games</h3>
-                                <p class="research-authors"><strong>Gabriel Smithline</strong>, <a href="https://scholar.google.com/citations?user=XydKackAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scott Nivison</a></p>
-                                <p class="research-venue"><em>ARMS (Autonomous Robots and Multirobot Systems) Workshop at AAMAS 2025</em> &middot; Oral presentation &middot; AFRL research project &middot; 2024 &nbsp;/&nbsp; <a href="assets/documents/merged_hot_starts.pdf" target="_blank" rel="noopener">PDF</a></p>
-                                <p class="research-summary">A graph convolutional network trained on Pareto-optimal configurations generates &ldquo;hot start&rdquo; pursuer positions that outperform random initialization.</p>
-                                <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-hot-starts" aria-expanded="false" aria-controls="abstract-hot-starts">
-                                    <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
-                                    <i class="fa-solid fa-chevron-down chevron"></i>
-                                </button>
-                                <div class="collapse" id="abstract-hot-starts">
-                                    <p class="abstract-content justify">Effectively positioning pursuers in pursuit-evasion games without prior knowledge of evader locations remains a significant challenge. A novel approach that combines game-theoretic control theory with Graph Neural Networks is introduced in this work. By conceptualizing pursuer configurations as strategic arrangements and representing them as graphs, a Graph Characteristic Space is constructed via multi-objective optimization to identify Pareto-optimal configurations. A Graph Convolutional Network (GCN) is trained on these Pareto-optimal graphs to generate strategically effective initial configurations, termed "hot starts". Empirical evaluations demonstrate that the GCN-generated hot starts provide a significant advantage over random configurations. In scenarios considering multiple pursuers and evaders, this method hastens the decline in evader survival rates, reduces pursuer travel distances, and enhances containment, showcasing clear strategic benefits.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="research-item">
-                            <a class="research-figure" href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">
-                                <img src="assets/img/figures/cooperative-ai.png" alt="Figure from the paper: system overview linking the AI legislator, the economics transformer and the policy interface." width="520" height="152" loading="lazy">
-                            </a>
-                            <div class="research-body">
-                                <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
-                                <p class="research-authors">Aiden Lewington et al. (51 authors, including <strong>Gabriel Smithline</strong>)</p>
-                                <p class="research-venue"><em>Preprint</em> &middot; 2024 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">arXiv:2412.06936</a></p>
-                                <p class="research-summary">A proposal for an open-source policymaking platform: a multimodal economics model, mechanisms for eliciting diverse perspectives, and a public web interface.</p>
-                                <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-cooperative" aria-expanded="false" aria-controls="abstract-cooperative">
-                                    <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
-                                    <i class="fa-solid fa-chevron-down chevron"></i>
-                                </button>
-                                <div class="collapse" id="abstract-cooperative">
-                                    <p class="abstract-content justify">Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
-                                </div>
+                            <h3 class="research-title"><a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">Creating a Cooperative AI Policymaking Platform through Open Source Collaboration</a></h3>
+                            <p class="research-authors">Aiden Lewington et al. (51 authors, including <strong>Gabriel Smithline</strong>)</p>
+                            <p class="research-venue"><em>Preprint</em> &middot; 2024 &nbsp;/&nbsp; <a href="https://arxiv.org/abs/2412.06936" target="_blank" rel="noopener">arXiv:2412.06936</a></p>
+                            <p class="research-summary">A proposal for an open-source policymaking platform: a multimodal economics model, mechanisms for eliciting diverse perspectives, and a public web interface.</p>
+                            <button class="abstract-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#abstract-cooperative" aria-expanded="false" aria-controls="abstract-cooperative">
+                                <span class="abstract-label"><i class="fa-regular fa-file-lines"></i>Abstract</span>
+                                <i class="fa-solid fa-chevron-down chevron"></i>
+                            </button>
+                            <div class="collapse" id="abstract-cooperative">
+                                <p class="abstract-content justify">Advances in artificial intelligence (AI) present significant risks and opportunities, requiring improved governance to mitigate societal harms and promote equitable benefits. Current incentive structures and regulatory delays may hinder responsible AI development and deployment, particularly in light of the transformative potential of large language models (LLMs). To address these challenges, we propose developing the following three contributions: (1) a large multimodal text and economic-timeseries foundation model that integrates economic and natural language policy data for enhanced forecasting and decision-making, (2) algorithmic mechanisms for eliciting diverse and representative perspectives, enabling the creation of data-driven public policy recommendations, and (3) an AI-driven web platform for supporting transparent, inclusive, and data-driven policymaking.</p>
                             </div>
                         </div>
 
