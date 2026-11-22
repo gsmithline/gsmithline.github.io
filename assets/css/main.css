@@ -309,6 +309,12 @@ a.research-figure:focus-visible img {
     font-weight: 600;
 }
 
+.research-equal {
+    margin-bottom: 0.15rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
 .research-venue {
     margin-bottom: 0.4rem;
     color: var(--text-secondary);
