@@ -422,6 +422,9 @@ a.research-figure:focus-visible img {
 
 .teaching-item.michigan {
     border-left-color: var(--umich-blue);
+    /* Maize stripe inside the blue edge: both Michigan colours, as on the
+       other entries' single school colour. */
+    box-shadow: inset 3px 0 0 0 var(--umich-maize);
 }
 
 /* ============================================
